@@ -1,0 +1,405 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(27, 27, 27);
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+.bg{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    opacity: 50%;
+    top: 0px;
+    object-fit: cover;
+    z-index: -10;
+}
+
+.header{
+    color: white;
+    text-align:center;
+    padding: 30px 0;
+    font-size: 25px;
+    width: 90%;
+    margin: auto;
+    border-radius: 25px;
+    position: relative;
+    top: 200px;
+}
+
+.header h1{
+    font-family: var(--heading);
+    font-size: 200%; 
+    color: white;
+    letter-spacing: 2px;
+}
+
+.container{
+    width: 70%;
+    height: fit-content;
+    margin: 550px auto;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 80%);
+    position: relative;
+    padding: 30px 10px;
+}
+
+.list{
+    width: 97%;
+    height: fit-content;
+    border: 1.5px solid white;
+    margin: auto;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: inline-flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 235px;
+    height: 320px;
+    border: 1px solid white;
+    border-radius: 6px;
+    position: relative;
+    top: 10px;
+    margin: 20px 0px 20px 10px;
+    overflow: hidden;
+    background-color: black;
+}
+
+.card::after{
+    content: '';
+    position: absolute;
+    top: 1.1em;
+    bottom: 1.1em;
+    left: 1.1em;
+    right: 1.1em;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    transform: scale(1, 0);
+    transition: .6s ease-out;
+    pointer-events: none;
+}
+
+.card:hover::after{
+    transform: scale(1, 1.05);
+}
+
+.card::before{
+    content: '';
+    position: absolute;
+    top: 1.1em;
+    bottom: 1.1em;
+    left: 1.1em;
+    right: 1.1em; 
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    transform: scale(0, 1);
+    transition: .6s ease-out;
+    pointer-events: none;
+}
+
+.card:hover::before{
+    transform: scale(1.07, 1);
+}
+
+
+.image{
+    width: 100%;
+    height: 100%;
+    transition: .6s;
+    transition-delay: .2s;
+}
+
+.image img{
+    width: 100%;
+    height: 100%;
+}
+
+.name{
+    overflow: hidden;
+    width: 80%;
+    height: 30%;
+    text-align:center;
+    color: white;
+    font-family: var(--heading);
+    font-size: 20px;
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.name p{
+    position: absolute;
+    top: -80%;
+    transition: .6s;
+    transition-delay: .3s;
+}
+
+.card:hover .image{
+    opacity: 30%;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+.card:hover p{
+    top: 15%;
+}
+
+/* link styling start */
+
+.links{
+    width: 94%;
+    height: fit-content;
+    border: 1px solid white;
+    margin: auto;
+    padding: 40px;
+}
+
+.epi_link{
+    position: relative;
+    border: 1px solid white;
+    height: 50px;
+    width: 100%;
+    margin: 2rem .25em;
+    padding: 9px 15px;
+    color: white;
+    font-family: var(--paragraph);
+}
+
+.download{
+    border: 1px solid rgb(122, 117, 117);
+    width: 150px;
+    height: 40px;
+    position: relative;
+    top: -111%;
+    float: right;
+    text-align: center;
+    background-color: black ;
+    transition: .3s;
+    border-radius: 3px;
+    color: white;
+}
+
+.download h4{
+    position: absolute;
+    top: 50%;   
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    visibility: visible;
+    font-family: var(--heading);
+    
+}
+
+.download:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.loading{
+    width: 100%;
+    height: 100%;
+    animation: spin 2s infinite;
+    position: absolute;
+    right: 0%;
+    visibility: hidden;
+    transition: .2s;
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(72deg);
+    }
+    25%{
+        transform: rotate(144deg);
+    }
+    50%{
+        transform: rotate(216deg);
+    }
+    75%{
+        transform: rotate(288deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+@media only screen and (max-width: 768px){
+
+    .header{
+        top: 50px;
+    }
+
+    .container{
+        margin: 250px auto;
+    }
+
+    .list{
+        width: 90%;
+    }
+}
+/* Loader container START */
+
+.loader{
+    /* background: black; */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    pointer-events: none;
+    backdrop-filter: blur(15px);
+    visibility: hidden;
+}
+
+.loader-content{
+    background: rgba(0, 0, 0, 50%);
+    border: 2px solid black;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader-heading{
+    background: rgba(0, 0, 0, 50%);
+    width: 100%;
+    height: 15%;
+    display: flex;
+    color: white;
+    font-size: 1rem;
+    font-family: var(--heading);
+}
+.loader h2{
+    padding: 0 0 0 20px;    
+    position: relative;
+    top: 50%;
+    transform: translateY(-30%);
+}
+
+
+
+.loader-gif{
+    width: 35%;
+    height: 85%;
+}
+
+.loader-gif img{
+    width: 100%;
+}
+
+.loader-text{
+    width: 65%;
+    height: 85%;
+    position: absolute;    
+    right: 0%;
+    bottom: 0%;
+    color: white;
+    font-size: 1.4rem;
+    font-family: var(--paragraph) ;
+}
+
+.loader-text h1{
+    margin: 0 0 20px 0;
+}
+
+.loader-text p{
+    margin: 5px 0 5px 0;
+    font-family: 1.5rem;
+}
+
+.loader-status{
+    font-size:1.7rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Loader container END */
+
+/* Skeleton container START */
+
+.skeleton{
+    width: 100%;
+    height: 100%;
+    /* background: rgb(238, 236, 236); */
+    background: var(--darkest);
+    position: absolute;
+    z-index: 11;
+}
+
+.sktn{
+    /* background: rgb(197, 195, 195); */
+    background: var(--dark);
+    overflow: hidden;
+}
+
+.sktn::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,
+        transparent,
+        /* rgb(224, 224, 224), */
+        var(--light),
+        transparent
+    );
+    position: absolute;
+    transform: translateX(-160%);
+    animation: loading 1.2s infinite;
+}
+
+.image-skeleton{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    top: 30px;
+    border-radius: 50%;
+}
+
+.name-skeleton{
+    width: 85%;
+    height: 30px;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.latest-skeleton{
+    width: 85%;
+    height: 30px;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes loading{
+    100%{
+        transform: translateX(160%);
+    }
+}
+
+/* Skeleton container END */

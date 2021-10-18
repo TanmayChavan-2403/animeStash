@@ -1,0 +1,120 @@
+/*:root{
+	--lightest: rgb(236, 236, 236);
+	--lighter: rgb(161, 161, 161);
+	--light: rgb(165, 162, 162);
+	--dark: rgb(51, 51, 51);
+	--darker: rgb(38, 38, 38);
+	--darkest: rgb(32, 32, 32);
+    --font: white;
+}
+*/
+
+:root{
+	--lightest: rgb(236, 236, 236);
+	--lighter: rgb(161, 161, 161);
+	--light: rgb(165, 162, 162);
+	--dark: rgb(14, 14, 14);
+	--darker: black;
+	--darkest: rgb(22, 22, 22);
+    --font: white;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: var(--darkest);
+}
+
+.contianer p{
+	position: absolute;
+	font-size: 55px;
+	color: var(--font);
+	left: 5%;
+	top: 15px;
+	font-family: 'Fredoka One', cursive;
+	letter-spacing: 3px;
+
+}
+
+.contianer{
+	position: relative;
+	border-radius: 10px;
+	width: 75%;
+	height: 500px;
+	margin: 50px 80px;
+	z-index: 2;
+	background-color:  var(--darker);
+	/* backdrop-filter: blur(4px); */
+	transition: .4;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.buttons{
+	position: absolute;
+	border: 2px solid var(--font);
+	border-top-right-radius:5px ; 
+	border-bottom-right-radius: 5px;
+	border-left: none;
+	width:20%;
+	height: 280px;
+	top: 23%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 15px;
+	text-align: center;
+	color: var(--font);
+	font-size: 20px;
+	font-family: 'Rubik', sans-serif;
+	background: var(--dark);
+}
+
+
+.buttons a{
+	border: 1px solid white;
+	color: var(--font);
+	text-decoration: none;
+	padding: 7px;
+	border-top-left-radius:7px ; 
+	border-bottom-right-radius: 7px;
+	background-color: var(--darker);
+	font-family: 'Acme', sans-serif;
+}
+
+.image{
+	position: relative;
+	width: 50%;
+	height: 100%;
+	left: 77%;	
+	z-index: 10;
+}
+
+.image img{
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.summary{
+	position: absolute;
+	border: 2px solid var(--font);
+	width: 50%;
+	height: 350px;
+	top: 21%;
+	left: 23%;
+	color: var(--font);
+	font-size: 24px;
+	font-weight: bold;
+	font-family: 'Acme', sans-serif;
+	padding: 15px 20px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	background-color: var(--dark);
+	letter-spacing: 1px;
+	word-spacing: 3px;
+}
+

@@ -1,0 +1,167 @@
+{% extends 'navbar.html' %}
+
+{% block header %}
+
+<style>
+	:root{
+		--heading: {{session['heading_font'] }} ;
+		--paragraph: {{session['paragraph_font'] }} ;
+		--button: {{session['button_font'] }} ;
+	}
+</style>
+
+	<link rel="stylesheet" type="text/css" href="../static/mainpage.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Josefin+Sans:wght@300;400&family=Josefin+Slab:wght@600;700&family=Lobster&family=Montserrat+Alternates:wght@400;500&family=Montserrat:wght@400;500&family=Open+Sans&family=PT+Sans&family=Patua+One&family=Poppins&family=Raleway:wght@400;500&family=Righteous&family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Akaya+Telivigala&family=Overpass:wght@300&family=RocknRoll+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% endblock %}
+
+{% block content %}
+
+	<body>
+		
+		<!-- This conditional function is used to check wheather we are having animes details at 0th index or not -->
+		<!--  We have defined checkDomain to check that 0th index belongs to which domain and assing index accordingly  -->
+		{% if checkDomain(mainpageData[0]) %}
+			{% set Anime = 0 %}
+			{% set Manga = 1 %}
+		{% else %}
+			{% set Anime = 1 %}
+			{% set Manga = 0 %}
+		{% endif %}
+		
+		
+
+		<div id="must-watch">
+			<div id="mw-slider"> <!-- mw = must watch -->
+				<div id="slider-cont1" class="mw-cnt">
+					<img src="{{ url_for('static', filename='/pics/Mainpage/sliderCnt1.jpg') }}">
+					<div class="detail-section">
+						<div class="anime-name">
+							<h1>86 EIGHTY-SIX</h1>
+						</div>
+						<div class="anime-summary">
+							Called “Juggernaut,” these are the unmanned combat drones developed by the Republic of San Magnolia in answer to the attacks by the autonomous unmanned drones of the neighboring Empire of Giad, the “Legion”. But they’re only unmanned in name. In reality, they are piloted by the Eighty-sixers—those considered to be less than human and treated as mere tools.
+							Determined to achieve his own mysterious ends, Shin, the captain of Spearhead Squadron, which is comprised of Eighty-sixers, continues to fight a hopeless war on a battlefield where only death awaits him.
+						</div>
+					</div>
+				</div>
+				<div id="slider-cont2" class="mw-cnt">
+					<img src="{{ url_for('static', filename='/pics/Mainpage/sliderCnt2.jpg') }}">
+					<div class="detail-section">
+						<div class="anime-name">
+							<h1>Aldnoah.Zero</h1>
+						</div>
+						<div class="anime-summary">
+							In 1972, the Apollo 17 mission found a hypergate to Mars on the surface of the moon. Upon landing, astronauts discovered a enchanted utility later referred to as 'Aldnoah', giving the astronauts a status of superiority. Soon, many humans have relocated to Mars, and have adapted to the name 'Martians'. After Princess Asseylum, a royal Martian princess, descends onto Earth in an attempt to create a treaty between both planets, a war breaks out between Earth and Mars, and Martian soldiers begin to descend from the sky, riding steel giants, intent on exterminating humanity. 
+						</div>
+					</div>
+				</div>
+				<div id="slider-cont3" class="mw-cnt">
+					<img src="{{ url_for('static', filename='/pics/Mainpage/sliderCnt3.png') }}">
+					<div class="detail-section">
+						<div class="anime-name">
+							<h1>Assassination Classroom</h1>
+						</div>
+						<div class="anime-summary">
+							The students of class 3-E have a mission: kill their teacher before graduation. He has already destroyed the moon, and has promised to destroy the Earth if he can not be killed within a year. But how can this class of misfits kill a tentacled monster, capable of reaching Mach 20 speed, who may be the best teacher any of them have ever had?
+						</div>
+					</div>
+				</div>
+				<div id="slider-cont4" class="mw-cnt">
+					<img src="{{ url_for('static', filename='/pics/Mainpage/sliderCnt4.png') }}">
+					<div class="detail-section">
+						<div class="anime-name">
+							<h1>Attack on Titan</h1>
+						</div>
+						<div class="anime-summary">
+							Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans.
+							Flash forward to the present and the city has not seen a titan in over 100 years. Teenage boy Eren and his foster sister Mikasa witness something horrific as the city walls are destroyed by a colossal titan that appears out of thin air. As the smaller titans flood the city, the two kids watch in horror as their mother is eaten alive. Eren vows that he will murder every single titan and take revenge for all of mankind.
+						</div>
+					</div>
+				</div>
+				<div id="slider-cont5" class="mw-cnt">
+					<img src="{{ url_for('static', filename='/pics/Mainpage/sliderCnt5.jpg') }}">
+					<div class="detail-section">
+						<div class="anime-name">
+							<h1>Children of the Whales </h1>
+						</div>
+						<div class="anime-summary">
+							Chakuro is the 14-year-old archivist of the Mud Whale, a nigh-utopian island that floats across the surface of an endless sea of sand. Nine in ten of the inhabitants of the Mud Whale have been blessed and cursed with the ability to use saimia, special powers that doom them to an early death.
+							Chakuro and his friends have stumbled across other islands, but they have never met, seen, or even heard of a human who wasn't from their own. One day, Chakuro visits an island as large as the Mud Whale and meets a girl who will change his destiny.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="popular-animes">
+			<h2> Popular Animes </h2>
+			<div class="cards">
+				{% for idx in range(20) %}
+					<a href="https://gogoanime.pe{{ mainpageData[Anime]['animeRlink'][idx] }}" class="card" >
+						<div>
+							<img src=" {{ mainpageData[Anime]['animeImg'][idx] }}" class="card-image">
+							<div class="card-details" onmouseover="alterDetailsSection('add', this)" onmouseout="alterDetailsSection('remove', this)">
+								<div class="info">
+									<span style="color: orange;">{{ mainpageData[Anime]['animeName'][idx] }}</span><br>
+									{{ mainpageData[Anime]['animeReleaseDate'][idx] }}
+								</div>
+							</div>
+						</div>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+
+
+		<div id="popular-animes">
+			<h2> Popular Mangas </h2>
+			<div class="cards">
+				{% for idx in range(20) %}
+					<a href="{{ mainpageData[Manga]['mangaRlink'][0][idx] }}" class="card" >
+						<div>
+							<img src=" {{ mainpageData[Manga]['mangaImg'][0][idx] }}" class="card-image">
+							<div class="card-details" onmouseover="alterDetailsSection('add', this)" onmouseout="alterDetailsSection('remove', this)">
+								<div class="info">
+									<span style="color: orange;">{{ mainpageData[Manga]['mangaName'][0][idx] }}</span><br>
+									{{ mainpageData[Manga]['mangaChapter'][idx] }}
+								</div>
+							</div>
+						</div>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+
+
+		<script>
+			let detailSection = document.getElementsByClassName('card-details')
+						
+			function alterDetailsSection(action, elm){
+				console.log(action);
+				if (action == 'add'){
+					elm.style.background = 'linear-gradient(0deg, rgba(22,22,22,1) 0%, rgba(255,255,255,0) 73%)';
+					console.log(elm);
+					// Array.from(detailSection).forEach(sec => {
+						// sec.style.background = 'linear-gradient(0deg, rgba(22,22,22,1) 0%, rgba(255,255,255,0) 73%)';
+					// });
+				} else {
+					elm.style.background = 'transparent'
+					console.log(elm);
+					// Array.from(detailSection).forEach(sec => {
+						// sec.style.background = 'transparent';
+					// });
+				}
+			}
+		</script>
+
+
+	</body>
+
+{% endblock %}

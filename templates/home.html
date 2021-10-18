@@ -1,0 +1,116 @@
+{% extends 'navbar.html' %}
+
+{% block header %}
+<style>
+	:root{
+		--heading: {{session['heading_font'] }} ;
+		--paragraph: {{session['paragraph_font'] }} ;
+		--button: {{session['button_font'] }} ;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='home.css')}} ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap" rel="stylesheet"> 
+<header>
+	
+	<div class="section1">
+		<div class="sec1Container">
+			<h1 class="tagline"> Otaku's Arena </h1>
+			<h2 class="msg"> On this platform you can search any anime, <br>manga, ova and also can keep track of your <br> completed series </h2>
+			<a href=" {{ url_for('mainpage') }} " class="entry-button"> <i class="fab fa-d-and-d"></i> Barge-In  <i class="fab fa-d-and-d"></i> </a>	
+		</div>
+	</div>
+
+	<div id="info">
+		
+		<div class="section s1">
+			<div class="image-section sec">
+				<div class="img-container cnt">
+					<div class="img-sec-1">
+						<img src="{{ url_for('static', filename='/pics/Home/HTML-CSS-JS.png') }}">
+					</div>					
+					<div class="img-sec-2">
+						<img src="{{ url_for('static', filename='/pics/Home/python.png') }}" >
+						<img src="{{ url_for('static', filename='/pics/Home/scrapy.png') }}" >
+						<img src="{{ url_for('static', filename='/pics/Home/database.png') }}">
+					</div>
+				</div>
+			</div>
+			<div class="message-section sec">
+				<div class="msg-container cnt">
+					<h2>Technologies Used</h2>
+					<br>
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.
+				</div>
+			</div>
+		</div>
+
+		<div class="section s2">
+			<div class="message-section sec">
+				<div class="msg-container cnt">
+					<h2> Supported Websites </h2>
+					<br>
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages
+				</div>
+			</div>
+			<div class="image-section sec">
+				<div class="img-container cnt">
+					<img src="{{ url_for('static', filename='/pics/Home/Gogoanime.jpg') }}">
+				</div>
+			</div>
+		</div>
+
+		<div class="section s1">
+			<div class="image-section sec">
+				<div class="img-container cnt">
+					<img src="{{ url_for('static', filename='/pics/Home/features.jpg') }}">
+				</div>
+			</div>
+			<div class="message-section sec">
+				<div class="msg-container cnt">
+					<h2> Features </h2>
+					<br>
+					<ul>
+						<li> Anime Downloading links from various websites like Gogoanime, AnimeKaizoku, Nyaa torrent, Anime Pahe</li>
+						<li> Manga Reading functionality</li>
+						<li> 5 Types of News paper to keep you updated with latest anime news daily</li>
+						<li> Customizable User Pannel </li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="section s1">
+			<div class="message-section sec">
+				<div class="msg-container cnt">
+					<h2> Future Plans </h2>
+					<br>
+					<ul>
+						<li> To add more websites so that you never run out of sources and should guranted get any anime you search for</li>
+						<li> Anime tracker, so that you can keep track of your watched animes </li>
+						<li> Anime apparals sources for getting fancy look </li>
+						<li> Manga Downloading options if you want any manga to be downloaded instead of reading it online </li>
+					</ul>
+				</div>
+			</div>
+			<div class="image-section sec">
+				<div class="img-container cnt">
+					<img src="{{ url_for('static', filename='/pics/Home/futurePlans.jpeg') }}">
+				</div>
+			</div>
+		</div>
+	
+	</div>
+
+	<script>
+		
+	</script>
+
+</header>
+
+{% endblock %}

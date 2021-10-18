@@ -1,0 +1,68 @@
+{% extends 'navbar.html' %}
+
+{% block header %}
+<style>
+    :root{
+        --heading: {{session['heading_font'] }} ;
+        --paragraph: {{session['paragraph_font'] }} ;
+        --button: {{session['button_font'] }} ;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+        <title> Episode Links </title>
+        <link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename = 'Links.css') }} ">
+
+        <div class="container">
+            <div class="content">
+                <div class="name">
+                    <p> {{ content[0]['name'] }} </p>
+                </div>
+                <div class="details">
+                    <div class="size d">
+                        <div class="icon">
+                            <img src="{{ url_for('static', filename='/pics/size.png') }} " alt="">
+                        </div>
+                        <div class="text">
+                            <p> <strong> Size </strong>  {{ content[0]['size'] }} </p>
+                        </div>
+                    </div>
+                    <div class="duration d">
+                        <div class="icon">
+                            <img src="{{ url_for('static', filename='/pics/duration.png') }}" alt="">
+                        </div>
+                        <div class="text">
+                            <p> <strong> Duration </strong> {{ content[0]['duration'] }} </p>
+                        </div>
+                    </div>
+                    <div class="resolution d">
+                        <div class="icon">
+                            <img src="{{ url_for('static', filename='/pics/resolution.png') }}" alt="">
+                        </div>
+                        <div class="text">
+                            <p> <strong> Resolution </strong> {{ content[0]['resolution'] }} </p>
+                        </div>
+                    </div>
+                </div>
+                {% if content[0]['hlink'] != '' %}
+                    <div class="hlink">
+                        <div href=" {{ content[0]['hlink'] }} ">
+                            <a href="#"> <img src="{{ url_for('static', filename='/pics/bolt.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="links">
+                    {% for link in content[0]['links'] %}
+                        <a href=" {{link}} "><img src="{{ url_for('static', filename='/pics/' + quality(link) + '0p.png' ) }}"  ></a>
+                    {% endfor %}
+                    <!-- <a href=""><img src="{{ url_for('static', filename='/pics/480p.png') }}" alt=""></a>
+                    <a href=""><img src="{{ url_for('static', filename='/pics/720p.png') }}" alt=""></a>
+                    <a href=""><img src="{{ url_for('static', filename='/pics/1080p.png') }}" alt=""></a> -->
+                </div>
+            </div>
+            <div class="image">
+                <img src="{{ url_for('static', filename='/pics/aot/download-img.png') }}" alt="">
+            </div>
+        </div>
+{% endblock %}

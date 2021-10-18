@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title> News details </title>
+        <link rel="stylesheet" href=" {{ url_for('static', filename='NewsDetails.css') }} ">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+	    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Lobster&family=Lobster+Two&family=PT+Sans&family=Permanent+Marker&family=Raleway:wght@500&family=Rubik&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="header">
+                <div class="title">
+                    <h1> {{ heading }} </h1>
+                </div>
+                <div class="image">
+                    <img src=" {{ post_img }} " alt="">
+                </div>
+            </div>
+            <div class="content">
+                {% for data in content %}
+                    {% if validate(data) == "['para']" %}
+                        <p> 
+                            {{ data['para'] }}
+                        </p>
+                    {% else %}
+                        <div class="c-image">
+                            <img src="{{data['img']}}" >
+                            <!-- <img src="https://www.uk-anime.net/images/news-rootfilm-1.jpg"> -->
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                
+            </div>
+        </div>
+       
+    </body>
+</html>

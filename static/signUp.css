@@ -1,0 +1,466 @@
+/*font-family: 'Acme', sans-serif;
+font-family: 'Fredoka One', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Lobster Two', cursive;
+font-family: 'Permanent Marker', cursive;
+font-family: 'PT Sans', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Rubik', sans-serif;
+*/
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*border: 1px solid red;*/
+}
+
+body{
+    background-color: rgb(31, 15, 31);
+}
+
+
+.heading{
+    position: relative;
+    border-bottom: none;
+    width: 100%;
+    height: 12%;
+    color: white;
+    padding: 14px 20px;
+    background-color:rgb(31, 13, 31) ;
+    font-family: 'Raleway', sans-serif;
+}
+
+.heading button{
+    float: right;
+    font-family: 'Raleway', sans-serif;
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    height: 50%;
+    width: 20%;
+    font-size: 1rem;
+    background-color: rgb(31, 13, 31);
+    border: 1px solid rgb(109, 93, 93);
+    color: white;
+    font-weight: bolder;
+    transition: .4s;
+}
+
+.heading button:hover{
+    background-color: rgb(71, 28, 71);
+    cursor: pointer;
+    border: none;
+}
+
+
+.registration{
+    /* border: 1px solid rgb(109, 93, 93); */
+    position: relative;
+    width: 35%;
+    height: 100%;
+    margin: auto;
+    background-color: rgb(46, 18, 46);
+    box-shadow: 0px 0px 15px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Mask container START */
+
+#mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgb(31, 13, 31);
+    z-index: 1;
+    opacity: 1;
+    transition: .5s;
+}
+
+/* #mask:hover{
+    opacity: 0;
+    transform: translateX(10%);
+} */
+
+#mask img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.m-message{
+    /* border-right: 1px solid rgb(206, 204, 204); */
+    border-radius: 7px;
+    padding: 10px;    
+    color: white;
+    width: 52%;
+    height: 25%;
+    position: absolute;
+    top: 5%;
+    font-size: 1rem;
+    font-family: 'Acme', sans-serif;
+    background: rgb(66, 29, 66);
+}
+
+.m-message p{
+    position: absolute;
+}
+
+.m-message::before{
+    content: '';
+    width: 15%;
+    height: 23%;
+    background: rgb(66, 29, 66);
+    position: absolute;
+    right: -7%;
+    bottom: 7px;
+    transform: rotate(45deg);
+    border-top: 1px solid rgb(206, 204, 204);
+    border-right: 1px solid rgb(206, 204, 204);
+    border-radius: 8px;
+}
+
+.m-message button{
+    position: absolute;
+    bottom: 0px;
+    right: 40px;
+    padding: 4px;
+    width: 80px;
+    border: none;
+    background: rgb(66, 29, 66);
+    border: 1px solid rgb(206, 204, 204);
+    color: white;
+    font-family: 'Acme', sans-serif;
+    transition: .5s;
+}
+
+.m-message button:hover{
+    background-color: rgb(136, 67, 136);
+    cursor: pointer;
+    border: none;
+}
+
+
+/* Mast container END */
+
+
+/* Error container START */
+
+#error{
+    /* border: 1px solid white; */
+    width: 100%;
+    height: 88%;
+    top: 12%;
+    position: absolute;
+    z-index: 2;
+    background-color: rgb(46, 18, 46);
+    backdrop-filter: blur(15px);
+    transition: .5s;
+}
+
+
+.regImg2{
+    width: 70%;
+    height: 100%;
+    position: absolute;
+}
+
+.regImg1{
+    position: absolute;
+    width: 80%;
+    height: 90%;
+    left: -40px;
+    bottom: 40;
+    object-fit: contain;
+}
+
+.err-message{
+    width: 60%;
+    height: 30%;
+    position: absolute;
+    right: 0;
+    top: 150;
+    right: 10px;
+    background-color: rgb(95, 46, 95) ;
+    border-radius: 7px;
+    padding: 15px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.err-message p{
+    position: absolute;
+
+}
+
+.err-message::before{
+    content: '';
+    width: 13%;
+    height: 23%;
+    background-color: rgb(95, 46, 95);
+    position: absolute;
+    top: 50%;
+    left: -18px;
+    transform: rotate(40deg);
+    border-radius: 5px;
+}
+
+.err-message button{
+    position: absolute;
+    padding: 4px;
+    bottom: 15;
+    right: 20px;
+    width: 130px;
+    border: none;
+    background: rgb(95, 46, 95);
+    border: 1px solid rgb(206, 204, 204);
+    color: white;
+    font-family: 'Acme', sans-serif;
+    transition: .5s;
+}
+
+.err-message button:hover{
+    background-color: rgb(136, 67, 136);
+    cursor: pointer;
+    border: none;
+}
+
+/* Error container END */
+
+/* Username container START */
+
+.username{
+    border-bottom: 1px solid rgb(109, 93, 93);
+    width: 100%;
+    height: 25%;
+    margin: 18px 0px;
+}
+
+.u-image{
+    width: 30%;
+    height: 100%;
+    position: relative;
+    top: -10%;
+}
+
+.u-image img{
+    width: 150%;
+    height: 110%;
+    object-fit: cover;
+}
+
+.u-message{
+    width: 60%;
+    height: 90%;
+    position: relative;
+    top: -95%;
+    right: -38%;
+    background-color: rgb(85, 36, 85);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.u-message::before{
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(85, 36, 85);
+    top: 30%;
+    transform: translateY(-30%) rotate(40deg);
+    left: -15px;
+    border-radius: 5px;
+}
+
+.u-message p{
+    color: white;
+    font-size: 1.5rem;
+    position: relative;
+    font-family: 'Fredoka One', cursive;
+}
+
+.u-input{
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    outline: none;
+    height: 27px;
+    width: 85%;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    background-color:  rgb(85, 36, 85);
+    border: none;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}   
+
+::placeholder{
+    color: rgb(196, 196, 196);
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Username container END */
+
+/* Email-id container START */
+
+.email-id{
+    border-bottom: 1px solid rgb(109, 93, 93);
+    width: 100%;
+    height: 25%;
+    margin: 18px 0px;
+}
+
+.e-image{
+    width: 30%;
+    height: 100%;
+    position: relative;
+    float: right;
+}
+
+.e-image img{
+    width: 100%;
+    height: 130%;
+    object-fit: cover;
+    position: relative;
+    top: -20%;
+    right: 10%;
+}
+
+.e-message{
+    width: 60%;
+    height: 90%;
+    position: relative;
+    left: 10px;
+    background-color: rgb(85, 36, 85);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.e-message::before{
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(85, 36, 85);
+    top: 30%;
+    transform: translateY(-30%) rotate(40deg);
+    right: -15px;
+    border-radius: 5px;
+}
+
+.e-message p{
+    color: white;
+    font-size: 1.5rem;
+    position: relative;
+    font-family: 'Fredoka One', cursive;
+}
+
+.e-input{
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    outline: none;
+    height: 27px;
+    width: 85%;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    background-color:  rgb(85, 36, 85);
+    border: none;
+    bottom: 15px;
+    left: 20px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Email-id container END */
+
+/* Password container START */
+
+.password{
+    width: 100%;
+    height: 25%;
+    margin: 18px 0px;
+}
+
+.p-image{
+    width: 30%;
+    height: 100%;
+    position: relative;
+}
+
+.p-image img{
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+}
+
+.p-message{
+    width: 60%;
+    height: 90%;
+    position: relative;
+    top: -95%;
+    right: -38%;
+    background-color: rgb(85, 36, 85);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.p-message::before{
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(85, 36, 85);
+    top: 30%;
+    transform: translateY(-30%) rotate(40deg);
+    left: -15px;
+    border-radius: 5px;
+}
+
+.p-message p{
+    color: white;
+    font-size: 1.5rem;
+    position: relative;
+    font-family: 'Fredoka One', cursive;
+}
+
+.p-input{
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    outline: none;
+    height: 27px;
+    width: 85%;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    background-color:  rgb(85, 36, 85);
+    font-family: 'Raleway', sans-serif;
+    border: none;
+    color: white;
+}   
+/* Password container END */
+
+
+@media screen and (max-width: 750px){
+
+    .registration{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }   
+
+    .regImg2{
+        width: 80%;
+    }
+
+    .err-forMedia{
+        height: 20%;
+        top: 220px;
+    }
+
+    .err-forMedia::before{
+        left: -13px;
+    }
+
+}

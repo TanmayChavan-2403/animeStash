@@ -1,0 +1,110 @@
+<html>
+    <header>
+        <title> Login form </title>
+        <link rel="stylesheet" href=" {{ url_for('static', filename='Login.css') }} ">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+	    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Lobster&family=Lobster+Two&family=PT+Sans&family=Permanent+Marker&family=Raleway:wght@500&family=Rubik&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </header>
+
+    <body onload="setTimeout(vanish, 2000);">
+        
+        <div class="login">
+
+            <div class="welcome" >
+                <div class="w-image">
+                    <img src=" {{ url_for('static', filename='/pics/g1.png') }} " >
+                    <img src=" {{ url_for('static', filename='/pics/g2.png') }} " >
+                    <img src=" {{ url_for('static', filename='/pics/g3.png') }} " >
+                </div>
+                <div class="w-message">
+                    <h1> Okaeri! </h1> 
+                    <p>Goshujin sama  </p>
+                </div>
+            </div>
+
+            {% if status == 'error' %}
+                <div class="error">
+                    <div class="err-image">
+                        <img src=" {{url_for('static', filename='/pics/errImg.png') }}" >
+                    </div>
+                    {% if err_type == 'absent' %}
+
+                        <div class="err-message1">
+                            <p> Ne Onichan! I checked your usename with password and its not matching, This username is linked with this email-id [  {{message}}    ] 
+                                check if it is yours or else you wanna
+                                <a href=" {{ url_for('signUp') }} "> sign-up </a>
+                                  i guess
+                            </p>
+                        </div>
+                        <div class="err-message2">
+                            <p> Or You can continue with your login  </p>
+                            <button id="err-button" onclick="disappear()"> Continue to Login </button>
+                        </div>
+
+                    {% elif err_type == 'empty' %}
+
+                        <div class="err-message1">
+                            <p> Ne Onichan! Please don't leave {{ message }} field empty </p>
+                        </div>
+                        <div class="err-message2">
+                            <p> Continue with your login  </p>
+                            <button id="err-button" onclick="disappear()"> Continue to Login </button>
+                        </div>
+
+                    {% endif %}
+                </div>
+            {% endif  %}
+            
+            <form method="POST">
+                <div class="heading">
+                    <h1> Login  </h1>
+                    <button type="submit"> Login </button>
+                </div>
+
+                <div class="username">
+                    <div class="u-image">
+                        <img src=" {{ url_for('static', filename='/pics/lg1.png') }} " >
+                    </div>
+                    <div class="u-message">
+                        <p> Your Username please, the one which you used while sign-up </p>
+                        <input type="text" name='username' class="u-input" placeholder="Enter Username ...">
+                    </div>
+                </div>
+
+                <div class="password">
+                    <div class="p-image">
+                        <img src=" {{ url_for('static', filename='/pics/lg1.png') }} " >
+                    </div>
+                    <div class="p-message">
+                        <p> Your Password please, the one which you were trying to hide from me  </p>
+                        <input type="text" name="password" class="p-input" placeholder="Enter Password ...">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script>
+
+            function vanish(){
+                const welcome = document.querySelector('.welcome');
+                welcome.style.zIndex = '-1';
+                welcome.style.transform = 'translateX(10%)';
+                welcome.style.opacity = '0';
+                // welcome.style.display = 'none';
+            }
+
+            function disappear(){
+                const error = document.querySelector('.error');
+                error.style.zIndex = '0';
+                error.style.transform = 'translateX(10%)';
+                error.style.opacity = '0';
+                // error.style.display = 'none';
+            }
+
+
+        </script>
+
+    </body>
+
+</html>

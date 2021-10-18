@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Success </title>
+	<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='Success.css') }} ">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Lobster&family=Lobster+Two&family=PT+Sans&family=Permanent+Marker&family=Raleway:wght@500&family=Rubik&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body onload="setTimeout(redirect, 3000);">
+
+	<div class="success">
+		<div class="message">
+			<p> {{ message }} </p>
+		</div>
+		<div class="image">
+			<img src=" {{ url_for('static', filename='/pics/success.gif') }} ">
+		</div>
+		<a href=" {{ url_for('mainpage') }} " id="redirector">  </a>
+	</div>
+
+	<script type="text/javascript">
+	
+		function redirect(){
+			const redirector = document.querySelector('#redirector');
+			redirector.click();
+		}			
+
+	</script>
+
+</body>
+</html>

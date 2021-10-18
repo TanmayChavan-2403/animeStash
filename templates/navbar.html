@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Navbar </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Josefin+Sans:wght@300;400&family=Josefin+Slab:wght@600;700&family=Lobster&family=Montserrat+Alternates:wght@400;500&family=Montserrat:wght@400;500&family=Open+Sans&family=PT+Sans&family=Patua+One&family=Poppins&family=Raleway:wght@400;500&family=Righteous&family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Akaya+Telivigala&family=Overpass:wght@300&family=RocknRoll+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename = 'navbar.css' ) }}">
+
+	<!-- <style>
+		:root{
+			--heading: 'Poppins';
+            --paragraph: 'Righteous';
+            --button: 'Bree Serif';
+		}
+	</style> -->
+	{% block header %}{% endblock %}
+
+</head>
+<body>
+	<!-- {% block loader %}{% endblock %}  -->
+	<header>
+		<nav>
+			<div class="row clearfix">
+
+				<div class="hamburger">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+
+				<a href=" {{ url_for('home') }} "> <img class = 'logo' src="{{ url_for('static', filename='/pics/logo2.png') }} "> </a> 
+
+				<ul class="main-nav">
+					<li class='nav-links'> <a href=" {{ url_for('mainpage')}} "> HOME </a> </li>
+					<li class='nav-links'> <a href=" {{ url_for('airing') }} "> AIRING </a> </li>
+					<li class='nav-links'> <a href=" {{ url_for('NewsRootPage') }} "> NEWS </a> </li>
+					<li class='nav-links'> <a href=" {{ url_for('MangaL') }} "> MANGA </a> </li>
+					{% if session['user'] == '' %}
+						<li class='nav-links'> <a href=" {{ url_for('signUp') }} "> REGISTER  </a> </li>
+						<li class='nav-links'> <a href=" {{ url_for('Login') }} "> LOGIN </a> </li>
+					{% else %}
+						<li class="nav-links"> <a href=" {{ url_for('Userpage') }} ">  {{session['user']}}  </a> </li>
+					{% endif %}
+				</ul>
+
+			</div>
+	
+		</nav>
+	
+	<script type="text/javascript">
+		
+		const hamburger = document.querySelector('.hamburger');
+		const links = document.querySelector('.main-nav');
+		const row = document.querySelector('.row')
+
+		hamburger.addEventListener("click", () =>{
+			links.classList.toggle('open');
+			hamburger.classList.toggle('open')
+			row.classList.toggle('open')
+
+		})
+
+		window.onscroll = () => {
+			const navbar = document.querySelector('.row');
+			if (window.scrollY > 100){
+				navbar.style.background = 'rgba(0, 0, 0, 40%)';
+				navbar.style.width = '100%';
+			}
+			else if (window.scrollY < 100){
+				navbar.style.background = 'none';
+				navbar.style.width = '86%';
+			}
+		}
+
+	</script>
+
+	</header>
+
+	{% block content %}{% endblock %}
+</body>
+</html>

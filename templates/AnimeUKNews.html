@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Search Result page </title>
+	<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='AnimeUKNews.css') }} ">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Lobster&family=Lobster+Two&family=PT+Sans&family=Permanent+Marker&family=Raleway:wght@500&family=Rubik&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+
+		<div class="contianer" id='div1'>
+			<p> UK Newspaper </p>
+			
+			<div class="buttons">
+				<a href=" {{ url_for('AnimeUKNews', type='news', heading='News') }} ">News</a>
+				<a href=" {{ url_for('AnimeUKNews', type='reviews/anime-review', heading='Anime Review') }} ">Anime Reviews</a>
+				<a href=" {{ url_for('AnimeUKNews', type='reviews/manga-review', heading='Manga Review') }} ">Manga Reviews</a>
+				<a href=" {{ url_for('AnimeUKNews', type='reviews/film-review', heading='Film Review') }} ">Film Reviews </a>
+				<a href=" {{ url_for('AnimeUKNews', type='reviews/book-review', heading='Book Review') }} ">Book Reviews</a>
+				<a href=" {{ url_for('AnimeUKNews', type='features/roundups', heading='Roundups') }} ">Roundups</a>
+				<a href=" {{ url_for('AnimeUKNews', type='features/opinions', heading='Opinions') }} ">Opinions</a>
+				<a href=" {{ url_for('AnimeUKNews', type='features/interviews', heading='Interviews') }} ">Interviews</a>
+			</div>
+
+			<div class="image">
+				<!-- <img src=" {{ url_for('static', filename='/pics/girl1.png') }} "> -->
+				<img src="{{ url_for('static', filename='/pics/aot/anime-uk-news.png') }}" >
+			</div>
+			<div class="summary"> 
+				We bought Anime news from all over the world! <br>
+				You will be getting daily latest news without any inturrpution. I hope you will be enjoying our serivice.
+				At the right hand side of this box there are five Newspapers provided, you can pick anyone of it and start 
+				exploring and increasing your knowledge about animes. Tanoshī :)
+			</div>
+		</div>
+		
+</body>
+</html>

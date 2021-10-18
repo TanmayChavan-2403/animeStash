@@ -1,0 +1,212 @@
+/*font-family: 'Josefin Sans', sans-serif;*/
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+
+	/*background-image: url(pics/bg.png);*/
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100vh;
+	width: 100%;
+}
+
+h1{
+	color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Message section start */
+
+.section1{
+	background: url(pics/bg.png);
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-family: 'Raleway', sans-serif;
+	color: white;
+	width: 100%;
+	height: 100vh;
+	display: inline-block;
+	justify-content: center;
+}
+
+.sec1Container{
+	width: 55%;
+	height: 50%;
+	margin-top: 20%;
+	transform: translateY(-20%);
+	padding: 25px;
+}
+
+.tagline{
+	text-align: center;
+}
+
+.msg{
+	padding: 10px;
+}
+
+.entry-button{
+	margin-left: 40%;
+}
+
+.section1 h2{
+	margin-bottom: 27px;
+	width: 100%;
+}
+
+.entry-button{
+	text-decoration: none;
+	color: white;
+	font-size: 90%;
+	font-family: 'Raleway', sans-serif;
+	border: solid 1px white;
+	padding: 10px 25px 10px 25px;
+	border-radius: 200px;
+	transition: .7s;
+	font-weight: bolder;
+}
+
+.entry-button:hover{
+	color: black;
+	background-color: white;
+}
+
+@media screen and (max-width: 600px){
+
+	body{
+		height: 100vh;
+	}
+
+	.section1{
+		width: 300px;
+		top: 40%;
+	}
+
+	.tagline{
+		font-size: 100%;
+	}
+	.msg{
+		font-size: 100%;
+	}
+	
+	.entry-button{
+		font-size: 50%;
+	}
+}
+
+
+
+/* Message section start */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Section1 container start  */
+
+#info{
+	width: 100%;
+	height: 300vh;
+	background-color: #161616;
+}
+
+
+.section{
+	width: 100%;
+	height: 70vh;
+	display: flex;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.sec{
+	width: 50%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.msg-container{
+	width: 75%;
+	height: fit-content;
+	padding: 25px;
+	background-color: #1b1b1b;
+	color: white;
+}
+
+
+.img-container{
+	width: 65%;
+	height: 80%;
+}
+
+.img-container img{
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.msg-container ul{
+	list-style-image: url('pics/bullet.png');
+}
+
+.img-sec-1{
+	width: 100%;
+	height: 50%;
+}
+
+.img-sec-2{
+	width: 100%;
+    height: 37%;
+    display: flex;
+}
+
+.img-sec-2 img{
+	object-fit: contain;
+}
+
+
+/* SEction1 container end */
+
+
+
+/* .img-container{
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+	width: 400px;
+	height: 250px;
+	position: absolute;
+	right: -50px;
+	top: 170px;
+	transform: rotate3d(0, 1, 0, -35deg);
+	z-index: 1000;
+	 perspective: 1500px;  To parent container to get 3D effect
+} */

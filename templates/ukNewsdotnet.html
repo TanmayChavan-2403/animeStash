@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Search Result page </title>
+	<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='ukNewsdotnet.css') }} ">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Lobster&family=Lobster+Two&family=PT+Sans&family=Permanent+Marker&family=Raleway:wght@500&family=Rubik&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+
+		<div class="contianer" id='div1'>
+			<p> UK News.net </p>
+			
+			<div class="buttons">
+				<a href=" {{ url_for('ukNewsdotnet', type='LatestNews', heading='Latest News' ) }} ">Latest News</a>
+				<a href=" {{ url_for('ukNewsdotnet', type='Hub-Anime', heading='Anime Reviews' ) }} ">Anime Reviews</a>
+				<a href=" {{ url_for('ukNewsdotnet', type='Hub-Manga', heading='Manga Reviews')  }} ">Manga Reviews</a>
+				<a href=" {{ url_for('ukNewsdotnet', type='Hub-Toys', heading='Anime Toys' ) }} ">Anime Toys </a>
+			</div>
+
+			<div class="image">
+				<!-- <img src=" {{ url_for('static', filename='/pics/girl1.png') }} "> -->
+				<img src="{{ url_for('static', filename='/pics/aot/ukNewsdotnet.png') }}" >
+			</div>
+			<div class="summary"> 
+				In this newspaper <br>
+				You will be getting daily latest news, Anime reviews, Manga Reviews, Anime Toys news, Anime Highlights, Manga and Anime Figures Highlights as well that too without any inturrpution which incase are advertisements. I hope you will be enjoying our serivice.
+				You can pick anyone of the tabs from left handside and start 
+				exploring and increasing your knowledge about animes. Tanoshī :)
+			</div>
+		</div>
+		
+</body>
+</html>

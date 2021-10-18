@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Search Result page </title>
+	<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='NewsRootPage.css') }} ">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Josefin+Sans:wght@300;400&family=Josefin+Slab:wght@600;700&family=Lobster&family=Montserrat+Alternates:wght@400;500&family=Montserrat:wght@400;500&family=Open+Sans&family=PT+Sans&family=Patua+One&family=Poppins&family=Raleway:wght@400;500&family=Righteous&family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Akaya+Telivigala&family=Overpass:wght@300&family=RocknRoll+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+   <style>
+		:root{
+			--heading: 'Poppins';
+            --paragraph: 'Righteous';
+            --button: 'Bree Serif';
+		}
+	</style>
+</head>
+<body>
+
+		<div class="contianer" id='div1'>
+			<p> Anime News! </p>
+			<div class="buttons">
+				<a href=" {{ url_for('AnimeUKNews') }} ">Newspaper 1</a>
+				<a href=" {{ url_for('ukNewsdotnet')}} ">Newspaper 2</a>
+				<a href=" {{ url_for('NewsList', crawler='animenewsandfacts' ) }} ">Newspaper 3</a>
+				<a href="#">Newspaper 4</a>
+				<a href="#">Newspaper 5</a>
+			</div>
+			<div class="image">
+				<img src="{{ url_for('static', filename='/pics/aot/news-root-page.png') }}">
+			</div>
+			<div class="summary"> 
+				We bought Anime news from all over the world! <br>
+				You will be getting daily latest news without any inturrpution. I hope you will be enjoying our serivice.
+				At the right hand side of this box there are five Newspapers provided, you can pick anyone of it and start 
+				exploring and increasing your knowledge about animes. Tanoshī :)
+			</div>
+		</div>
+		
+</body>
+</html>

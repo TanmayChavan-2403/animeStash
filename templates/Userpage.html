@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title> Userpage </title>
+        <link rel="stylesheet" href=" {{ url_for('static', filename='Userpage.css') }} ">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Josefin+Sans:wght@300;400&family=Josefin+Slab:wght@600;700&family=Lobster&family=Montserrat+Alternates:wght@400;500&family=Montserrat:wght@400;500&family=Open+Sans&family=PT+Sans&family=Patua+One&family=Poppins&family=Raleway:wght@400;500&family=Righteous&family=Rubik&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            :root{
+                --heading: 'Poppins';
+                --paragraph: 'Righteous';
+                --button: 'Josefin Sans'
+            }
+        </style>        
+
+    </header>
+
+    <body>
+        <div class="container">
+            <div class="left-container">
+                <div class="profile">
+                    <div class="profile-image">
+                        <img src=" {{ url_for('static', filename='avatars/' + userData[3] + '.png') }} " alt="">
+                    </div>
+                    <div class="profile-button" tabindex="100" onclick="visible(0)">
+                        <p> Avatars </p>
+                    </div>
+                </div>
+
+                <div class="settings">
+                    <div class="s" id="setting1" tabindex='100' onclick="visible(1)">
+                        <p> User Info </p>
+                    </div>
+                <!--  <div class="s" id="setting2" tabindex='100' onclick="visible(2)">
+                        <p> Theme color </p>
+                    </div> -->
+                    <div class="s" id="setting3" tabindex='100' onclick="visible(3)">
+                        <p> Theme type </p>
+                    </div>
+                    <div class="s" id="setting4" tabindex='100' onclick="visible(4)">
+                        <p> Fonts </p>
+                    </div>
+                    <a href=" {{ url_for('mainpage', type='logout') }} ">
+                        <div class="s">
+                            <p> Logout </p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>    
+
+            <div class="right-container">
+                <div class="skeleton">
+                    <div class="bar1 sktn"></div>
+                    <div class="bar2 sktn"></div>
+                    <div class="bar3 sktn"></div>
+                    <div class="bar4 sktn"></div>
+                </div>
+                <!-- UserInfo container START -->
+                <form method="POST" action=" {{ url_for('Userpage', type='UserUpdate', u_name =userData[0], u_password = userData[2], u_email = userData[1], u_avatar = userData[3]  ) }} ">
+                    <div class="userInfo" id="container1">
+                        <div class="userInfoTitle">
+                            <p> User Info </p>
+                            <button type="submit" >Update</button>
+                        </div>
+                        <div class="Info">
+                            <div class="username-info inf">
+                                <p> Name </p>
+                                <input type="text" placeholder="{{ userData[0] }}" disabled class="input" name="username">
+                            </div>
+                            <div class="email-info inf">
+                                <p> Email </p>
+                                <input type="text" placeholder=" {{ userData[1] }} " disabled class="input" name="email">
+                            </div>
+                            <div class="password-info inf">
+                                <p> Password </p>
+                                <input type="text" placeholder=" {{ userData[2] }} " disabled class="input" name="password">
+                            </div>
+                            <div class="inf">
+                                <a class="info-update-button" onclick="enable()">
+                                    <p>Click here to update your profile </p>
+                                </a>               
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <!-- UserInfo contianer END -->
+
+                <!-- Theme container  -->
+                <!-- <div class="theme-color" id='container2'>
+                    <div class="theme">
+                        <div class="theme-heading">
+                            Theme Pallet
+                        </div>
+                        <div class="color-pallets">
+                            
+                            <label class="pallet1 pl">
+                                <input type="radio" name="theme-color">
+                                <div class="color1 cl"></div>
+                            </label>
+                            <label class="pallet1 pl">
+                                <input type="radio" name="theme-color">
+                                <div class="color2 cl"></div>
+                            </label>
+                            <label class="pallet1 pl">
+                                <input type="radio" name="theme-color">
+                                <div class="color3 cl"></div>
+                            </label>
+                            <label class="pallet1 pl">
+                                <input type="radio" name="theme-color">
+                                <div class="color4 cl"></div>
+                            </label>
+                            <label class="pallet1 pl">
+                                <input type="radio" name="theme-color">
+                                <div class="color5 cl"></div>
+                            </label>
+                            <label class="pallet1 pl">
+                                <input type="radio" name="theme-color">
+                                <div class="color6 cl"></div>
+                            </label>
+
+                        </div> 
+                    </div>
+                </div>  -->
+                <!-- Theme container END  -->
+
+                <!-- Theme-type container START -->
+                <div class="theme-type" id="container3" >
+
+                    <div class="type-container">
+                        <div class="type-heading">
+                            <p>Theme type</p>
+                        </div>
+                        <div class="types">
+
+                            <label class="types-custom-radio">
+                                <input type="radio" name="type">
+                                <div class="type">
+                                    <img src="{{ url_for('static', filename='/pics/theme-boy.png') }}" alt="">
+                                    <div class="type-name">
+                                        <h3> Boy</h3>
+                                    </div>
+                                    <div class="tool-tip">
+                                        <p> This theme will provide random boys images wherever they will be used </p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="types-custom-radio">
+                                <input type="radio" name="type">
+                                <div class="type">
+                                    <img src="{{ url_for('static', filename='/pics/theme-girl.png') }}" alt="">  
+                                    <div class="type-name">
+                                        <h3> Girl </h3>
+                                    </div>  
+                                    <div class="tool-tip">
+                                        <p> This theme will provide random girls images wherever they will be used </p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="types-custom-radio">
+                                <input type="radio" name="type">
+                                <div class="type">
+                                    <img src="{{ url_for('static', filename='/pics/theme-aot.png') }}" alt="">   
+                                    <div class="type-name">
+                                        <h3> Attack on titan </h3>
+                                    </div>   
+                                    <div class="tool-tip">
+                                        <p> This theme will provide all aot character images wherever they will be used </p>
+                                    </div>
+                                </div>
+                            </label>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Theme-type container END -->
+
+                <!-- Avatar container START -->
+                <form method="POST" action=" {{ url_for('Userpage', type='Avatar', u_name =userData[0], u_password = userData[2], u_email = userData[1] ) }} ">
+                <div class="avatar-container" id="container0">
+                    <div class="avatar-heading">
+                        <p> Change Avatars </p>
+                        <button type="submit" >Update Avatar</button>
+                    </div>
+                    <div class="avatars">
+                        {% for avatar in range(1, 29) %}
+                            <label class="avatars-custom-radio">
+                                <input type="radio" name="avatar" value="av{{avatar}}">
+                                <div class="avatar">
+                                    <img src=" {{ url_for('static', filename= '/avatars/av' + _str(avatar) +'.png') }} " alt="">
+                                </div>
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+                </form>
+                <!-- Avatar container END -->
+
+                <!-- Font container START  -->
+                <form method = 'POST' action=" {{ url_for('Userpage', type='Font') }} ">
+                    <div class="font-container" id="container4">
+
+                        <div class="font-heading">
+                            <p> Fonts </p>
+                            <button type="submit" >Update Font </button>
+                        </div>
+
+                        <div class="fonts">
+
+                            <div class="font1 fnt">
+                                <div class="tag-heading">
+                                    <p>Heading</p>
+                                </div>
+                                <div class="font-list">
+                                    {% for font_name in ['Bree Serif', 'osefin Sans', 'Josefin Slab', 'Lobster', 'Montserrat', 'Montserrat Alternates', 'Open Sans', 'Patua One', 
+                                    'Poppins', 'PT Sans', 'Raleway', 'Righteous', 'Rubik', 'Acme', 'Overpass', 'Akaya Telivigala', 'RocknRoll One', 'Fredoka One'
+                                    ] %}
+                                        <label class="custom-font-radio">
+                                            <input type="radio" name="font-heading" value="{{ font_name }}">
+                                            <li style="font-family: {{ font_name }};" >{{font_name }} </li>
+                                        </label>
+                                    {% endfor %}
+                                    
+                                </div>
+                            </div>
+
+                            <div class="font2 fnt">
+                                <div class="tag-heading">
+                                    <p>Paragraph</p>
+                                </div>
+                                <div class="font-list">
+                                    {% for font_name in ['Bree Serif', 'osefin Sans', 'Josefin Slab', 'Lobster', 'Montserrat', 'Montserrat Alternates', 'Open Sans', 'Patua One', 
+                                    'Poppins', 'PT Sans', 'Raleway', 'Righteous', 'Rubik', 'Acme', 'Overpass', 'Akaya Telivigala', 'RocknRoll One', 'Fredoka One'
+                                    ] %}
+                                        <label class="custom-font-radio">
+                                            <input type="radio" name="font-para" value="{{ font_name }}">
+                                            <li style="font-family: {{ font_name }};" > {{ font_name }} </li>
+                                        </label>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="font3 fnt">
+                                <div class="tag-heading">
+                                    <p>Button</p>
+                                </div>
+                                <div class="font-list">
+                                    {% for font_name in ['Bree Serif', 'osefin Sans', 'Josefin Slab', 'Lobster', 'Montserrat', 'Montserrat Alternates', 'Open Sans', 'Patua One', 
+                                    'Poppins', 'PT Sans', 'Raleway', 'Righteous', 'Rubik', 'Acme', 'Overpass', 'Akaya Telivigala', 'RocknRoll One', 'Fredoka One'
+                                    ] %}
+                                    <label class="custom-font-radio">
+                                        <input type="radio" name="font-button" value="{{ font_name }}">
+                                        <li  style="font-family: {{ font_name }};" > {{ font_name }} </li>
+                                    </label>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </form>
+                <!-- Font container END  -->
+
+
+            </div>
+        </div>
+        <script>
+
+            window.onload = function () {
+                disableSkeleton();
+                clickButton();
+            }
+
+            function clickButton(){
+                document.querySelector('#setting1').click();
+                store = document.querySelector('#container1');
+            }
+
+            var store
+            function visible(id){
+                if (store != undefined){
+                    console.log('Disabling ----> container',store);
+                    store.classList.toggle('reveal');
+                }
+                const container = document.querySelector(`#container${id}`);
+                container.classList.toggle('reveal');
+                store = container;
+            }
+
+            function enable(){
+                var buttons = document.querySelectorAll('.input');
+                buttons.forEach(button => {
+                    button.disabled = false;
+                    button.placeholder = '';
+                })
+            }
+
+            function disableSkeleton(){
+                document.querySelector('.skeleton').style.display = 'none';
+                console.log('It has reached here for ');
+            }
+
+            // window.onresize = function(){
+            //     const leftContainer = document.querySelector('.left-container');
+            // }
+
+        </script>
+    </body>
+</html>

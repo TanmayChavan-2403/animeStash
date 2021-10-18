@@ -1,0 +1,430 @@
+/* :root{
+	--lightest: rgb(209, 209, 209);
+	--lighter: rgb(185, 185, 185);
+	--light: rgb(136, 136, 136);
+	--dark: rgb(51, 51, 51);
+	--darker: rgb(38, 38, 38);
+	--darkest: rgb(32, 32, 32);
+	--font: white;
+	--opfont: black;
+}  */
+
+:root{
+    --light: rgb(87, 64, 98);
+    --dark:  rgb(65, 41, 77);
+    --darkest: rgb(48, 25, 59);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: black;
+}
+
+.main-heading{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4vw;
+    font-family: var(--heading);
+}
+
+.bg-image{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    opacity: 70%;
+    object-fit: cover;
+}   
+
+.container{
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    top: 100%;
+    /*background: rgba(22, 13, 26, 70%);*/
+}
+
+/* manga contianer styling START */
+
+.manga{
+    width: 80%;
+    height: fit-content;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px 6px rgba(0, 0, 0, 0.2);
+    margin: 100px auto;
+    background: rgb(36, 21, 43);
+
+}
+
+.heading{
+    color: white;
+    width: 100%;
+    height: 100px;
+    font-size: 50px;
+    padding: 15px 30px;
+    position: relative;
+    background:  rgb(27, 16, 32);
+    display: inline-flex;
+    font-family: var(--heading)
+}
+
+.category{
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.category a{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    margin: 20px 10px;
+    background: rgb(63, 157, 189);
+    padding: 2px 15px 5px 15px;
+    border-radius: 200px;
+    transition: .4s;
+}
+
+.category a:hover{
+    background:rgb(81, 200, 240) ;
+}
+
+.series{
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    width: 210px;
+    height: 300px;
+    margin: 1rem .25em;
+    overflow: hidden;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: .8s;
+}
+
+.card:hover .name h3{
+    transform: scale(1.2);
+}
+
+.card:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+
+.card:hover .name{
+    background: rgba(0, 0, 0, 50%);
+    backdrop-filter: blur(10px);
+}
+
+.name p{
+    font-size: 1rem;
+    position: relative;
+    transition: 1s;
+    z-index: 10;
+    padding: 5px 3px 10px 3px;
+} 
+
+.name h3{
+    /* color: rgb(185, 88, 88); */
+    color: rgb(28, 150, 231);
+    transition: .8s;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+    position: relative;
+    z-index: 0;
+}
+
+.name{
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    z-index: 10;
+    text-align: center;
+    font-size: .7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    bottom: 0%;
+    overflow: hidden;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0%);
+    backdrop-filter: blur(10px);
+    font-family: var(--paragraph);
+    transition: .4s;
+}
+
+/* Popular manga contianer styling END */
+
+
+/*Search bar container START */
+
+.searchbox-container{
+    position: relative;
+    top: 60px;
+    right: 60px;
+    float: right;
+}
+
+.searchbox{
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 53px;
+    transition: 0.4s linear;
+    overflow: hidden;
+}
+
+.input{
+    display: block;
+    appearance: none;
+    width: 100%;
+
+    border: none;
+    outline: none;
+    border-radius: 50px;
+
+    background-color: #24233A;
+    padding: 15px;
+    color: #24233A;
+    
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.4s linear;
+}
+
+.searchbox__icon{
+    position: absolute;
+    right: 10px;
+    top: 25%;
+    transform: translate(50%; -50%);
+
+    width: 30px;
+    height: 30px;
+
+    pointer-events: none;
+}
+
+::placeholder{
+    color: #24233A;
+}
+
+path{
+    fill: #00F494;
+    transition: 0.4s linear;
+}
+
+.searchbox:focus-within{
+    max-width: 300px;
+}
+
+.input:focus-within{
+    background-color: #FFF;
+    padding-right: 50px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+path:focus-within {
+    fill: #24233A;
+}
+
+
+/*Search bar container END */
+
+
+
+/* Buttons container START */
+
+.buttons{
+    background: rgba(0, 0, 0, 90%);
+    width: 80%;
+    height: 60px;
+    margin: 50px auto;
+    position: relative;
+    border-radius: 5px;
+    padding: 5px;
+}
+.next{
+    width: 6%;
+    height: 100%;
+    float: right;
+    position: relative;
+    top: -100%;
+}
+
+.previous{
+    width: 6%;
+    height: 100%;
+    position: relative;
+    left: 10px;
+}
+
+/* Butons container END  */
+
+/* Loader container START */
+
+.loader{
+    /* background: black; */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    pointer-events: none;
+    /* backdrop-filter: blur(15px); */
+    visibility: hidden;
+}
+
+.loader-content{
+    background: rgba(0, 0, 0, 50%);
+    border: 2px solid black;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader-heading{
+    background: rgba(0, 0, 0, 50%);
+    width: 100%;
+    height: 15%;
+    display: flex;
+    color: white;
+    font-size: 1rem;
+    font-family: var(--heading);
+}
+.loader h2{
+    padding: 0 0 0 20px;    
+    position: relative;
+    top: 50%;
+    transform: translateY(-30%);
+}
+
+
+
+.loader-gif{
+    width: 35%;
+    height: 85%;
+}
+
+.loader-gif img{
+    width: 100%;
+}
+
+.loader-text{
+    width: 65%;
+    height: 85%;
+    position: absolute;    
+    right: 0%;
+    bottom: 0%;
+    color: white;
+    font-size: 1.4rem;
+    font-family: var(--paragraph) ;
+}
+
+.loader-text h1{
+    margin: 0 0 20px 0;
+}
+
+.loader-text p{
+    margin: 5px 0 5px 0;
+    font-family: 1.5rem;
+}
+
+.loader-status{
+    font-size:1.7rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Loader container END */
+
+/* Skeleton container START */
+
+.skeleton{
+    width: 100%;
+    height: 100%;
+    background: var(--darkest);
+    position: absolute;
+    z-index: 11;
+}
+
+.sktn{
+    background: var(--dark);
+    overflow: hidden;
+}
+
+.sktn::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,
+        transparent,
+        /* rgb(224, 224, 224), */
+        var(--light),
+        transparent
+    );
+    position: absolute;
+    transform: translateX(-160%);
+    animation: loading 1.2s infinite;
+}
+
+.image-skeleton{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    top: 30px;
+    border-radius: 50%;
+}
+
+.name-skeleton{
+    width: 85%;
+    height: 30px;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.latest-skeleton{
+    width: 85%;
+    height: 30px;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes loading{
+    100%{
+        transform: translateX(160%);
+    }
+}
+
+/* Skeleton container END */

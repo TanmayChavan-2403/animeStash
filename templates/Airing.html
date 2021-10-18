@@ -1,0 +1,111 @@
+{% extends 'navbar.html' %}
+
+{% block header %}
+<style>
+	:root{
+		--heading: {{session['heading_font'] }} ;
+		--paragraph: {{session['paragraph_font'] }} ;
+		--button: {{session['button_font'] }} ;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+        <title> Airing page </title>
+        <link rel="stylesheet" href=" {{ url_for('static', filename='Airing.css') }} ">
+        <img src=" {{url_for('static', filename='/pics/airingBg.png')}} " class="bg">
+        
+    <body onload="removeSkeleton()">
+        <div class="loader" >
+            <div class="loader-content">
+                <div class="loader-heading">
+                    <img src=" {{ url_for('static', filename = '/pics/loading.svg') }} " alt="">
+                    <h2> Status Report -  </h2> <h2>Fetching data</h2>
+                </div>
+                <div class="loader-gif">
+                    <img src=" {{ url_for('static', filename ='/pics/search.gif' ) }} ">
+                </div>
+                <div class="loader-text">
+                    <h1> Searching for ... </h1>
+                    <p class="status-name">  </p>
+                    <p class="status-type">  </p>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <h1>Ongoing series</h1>
+        </div>
+    
+        <div class="container">
+            <section class="series">
+                {% for anime in content %}
+                <a href=" {{ url_for('Download', name = anime['name'], type='dlink ' + anime['episode'], link = anime['r_link'] ) }} ">
+                    <article class="card" onclick="innitiateSearch('{{ anime['name'] }}', 'Anime')">
+                        <div class="skeleton">
+                            <div class="image-skeleton sktn"></div>
+                            <div class="name-skeleton sktn"></div>
+                            <div class="latest-skeleton sktn"></div>
+                        </div>
+                        <div class="name">
+                            <h2> {{ anime['name'] }}  </h2>
+                            <h3> {{ anime['episode']}} </h3>
+                        </div>
+                        <!-- <div class="latest">
+                            <h2> {{ anime['episode']}} </h2>
+                        </div> -->
+                        <img src=" {{ anime['image'] }} " class="image">
+
+                    </article>
+                </a>
+                {% endfor %}
+            </section>
+
+            <div class="buttons">
+                <div class="previous">
+                    {% if session['currentPage']  > 1 %}
+                    <a href=" {{ url_for('airing', type='previous' ) }} ">
+                        <img src="https://img.icons8.com/fluent/48/000000/double-left.png"/>
+                    </a>
+                    {% else %}
+                        <img src="https://img.icons8.com/color/48/000000/clear-symbol--v2.png"/>
+                    {% endif %}
+                </div>
+                <div class="next">
+                    <a href=" {{ url_for('airing', type='next' ) }} ">
+                        <img src="https://img.icons8.com/fluent/48/000000/double-right.png"/>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            function innitiateSearch(name ,type){
+                const loader = document.querySelector('.loader');
+                loader.style.visibility = 'visible';
+                loader.style.pointerEvents = 'all';
+                document.querySelector('.status-name').innerHTML = `Name:  ${name}`;
+                document.querySelector('.status-type').innerHTML = `Type:  ${type}`;
+                var clock = 1;
+                var timer = setInterval(function(){
+                    clock += 1;
+                    if ( clock > 5){
+                        document.querySelector('.loader-text').innerHTML += ' If data is more then it will take some time to fetch data[Anime/Manga]';
+                        clearInterval(timer)
+                    }
+                }, 1000);
+            }
+
+            function removeSkeleton(){
+                const skeletons = document.querySelectorAll('.skeleton');
+                skeletons.forEach( skeleton => {
+                    skeleton.style.display = 'none';
+                    console.log(skeleton);
+                });
+            }
+            
+
+        </script>
+
+    </body>
+{% endblock %}

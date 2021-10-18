@@ -1,0 +1,251 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+body, html{
+	scrollbar-width:  none;
+	-ms-overflow-style: none;
+	background-color: #161616;
+}
+
+img{
+	width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+
+
+/* Must watch content start */
+
+#must-watch{
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+}
+
+#mw-slider{
+	margin: 0;
+	left: 0;
+	position: relative;
+	width: 500%;
+	height: 97vh;
+	display: flex;
+	animation: 80s slider infinite;
+}
+
+.mw-cnt{
+	width: 20%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: greenyellow;
+}
+
+.mw-cnt img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.detail-section{
+	width: 20%;
+	height: 100vh;
+	color: white;
+	position: absolute;
+	background-color: rgba(0, 0, 0, .7);
+	background: linear-gradient(0deg, rgba(22,22,22,1) 0%, rgba(255,255,255,0) 73%);
+	transition: 0.8s;
+}
+
+.anime-name{
+	width: 100%;
+	height: 10%;
+	position: absolute;
+	bottom: 25%;
+	font-family: var(--heading);
+	padding-left: 25px;
+	font-size: 2vh;
+}
+
+.anime-summary{
+	width: 100%;
+	height: 25%;
+	position: absolute;
+	bottom: 0px;
+	padding: 10px;
+	overflow-y:scroll;
+	scrollbar-width:  none;
+	-ms-overflow-style: none;
+	font-family:  var(--paragraph);
+}
+
+.anime-summary::-webkit-scrollbar{
+	display: none;
+}
+
+/* Must watch content end */
+
+
+
+
+
+
+
+
+
+/* Popular animes container starts */
+
+#popular-animes{
+	width: 90%;
+	height: fit-content;
+	margin: 50px auto;
+	background-color: #1b1b1b;
+	margin-top: 150px;
+}
+
+#popular-animes h2{
+	font-family: var(--heading);
+	color: white;
+	padding: 5px 15px;
+}
+
+.cards{
+	width: 100%;
+	height: fit-content;
+	border: 1px solid white;
+	padding: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 50px;
+}
+
+.card{
+	width: 21%;
+    min-width: 200px;
+    max-height: 350px;
+    min-height: 300px;
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+}
+
+.card-image{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.card-details{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	text-align: center;
+	top: 0px;
+	/* background: linear-gradient(0deg, rgba(22,22,22,1) 0%, rgba(255,255,255,0) 96%); */
+}
+
+.info{
+	width: 100%;
+	height: fit-content;
+	padding: 5px;
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	color: white;
+	font-family: var(--paragraph);
+}
+
+
+/* Popular animes container ends */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Keyframes animation container start */
+
+@keyframes slider{
+	0%{
+		left: 0%;
+	}
+	7%{
+		left: -100%;
+	}
+	10%{
+		left: -100%;
+	}
+	12%{
+		left: -200%;
+	}
+	20%{
+		left: -200%;
+	}
+	22%{
+		left: -300%;
+	}
+	30%{
+		left: -300%;
+	}
+	32%{
+		left: -400%;
+	}
+	40%{
+		left: -400%;
+	}
+	50%{
+		left: -400%;
+	}
+	52%{
+		left: -300%;
+	}
+	60%{
+		left: -300%;
+	}
+	62%{
+		left: -200%;
+	}
+	70%{
+		left: -200%;
+	}
+	72%{
+		left: -100%;
+	}
+	80%{
+		left: -100%;
+	}
+	82%{
+		left: 0%;
+	}
+	90%{
+		left: 0%;
+	}
+	100%{
+		left: 0%;
+	}
+}
+
+/* Keyframes animation container ends */
+
+
+
+
+
+

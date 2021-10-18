@@ -1,0 +1,52 @@
+{% extends 'navbar.html' %}
+
+{% block header %}
+<style>
+	:root{
+		--heading: {{session['heading_font'] }} ;
+		--paragraph: {{session['paragraph_font'] }} ;
+		--button: {{session['button_font'] }} ;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='Wallpaper.css') }}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Bree+Serif&family=Josefin+Sans&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        
+        <div class="main-container">
+            {% for wallpaper in wallpapers['wallpapers'] %}    
+            <div class="wallpaper">
+                <img src=" {{ wallpaper['url_image'] }} " alt="">
+                <a href="  {{ wallpaper['url_image'] }} " download="Image.png">
+                    <div class="download" >
+                        <img src=" {{ url_for('static', filename='/pics/download.png') }} " id='image'>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="poster">
+            <!-- <img src="images/girl1.png" alt="">
+            <img src="images/girl2.png" alt="">
+            <img src="images/girl3.png" alt=""> -->
+            <img src=" {{ url_for('static', filename='/pics/rboys/dgirl.png') }} ">
+        </div>
+
+        <script>
+            function download(){
+                document.querySelector("#image").setAttribute("download", "filename.jpg");
+                console.log('running')
+            }
+            
+        </script>
+    </body>
+</html>
+{% endblock %}

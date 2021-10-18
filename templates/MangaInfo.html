@@ -1,0 +1,136 @@
+{% extends 'navbar.html' %}
+
+{% block header %}
+<style>
+	:root{
+		--heading: {{session['heading_font'] }} ;
+		--paragraph: {{session['paragraph_font'] }} ;
+		--button: {{session['button_font'] }} ;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+	<title> Manga page </title>
+	<link  rel="stylesheet"  href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='MangaInfo.css') }}">
+	<script type="text/javascript" src=" {{ url_for('static', filename='MangaInfo.js') }} "></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Lobster&family=Lobster+Two&family=PT+Sans&family=Permanent+Marker&family=Raleway:wght@500&family=Rubik&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<body onload="pushDown()">
+
+	<div class="banner">
+		{% if content == []%}
+	        <div class="no-content">
+	            <div class="nc-image">
+	                <img src=" {{ url_for('static', filename='/pics/crying.gif') }} " alt="">
+	            </div>
+	            <div class="nc-message">
+	                <p> Gomen ne Oniisan! I coudn't fetch any data from server </p>
+	            </div>
+	        </div>
+	    {% else %}
+			<img src=" {{ url_for('static', filename='/pics/bg.jpg') }} " class="banner-image">
+			<h2> {{ content['name'] }} </h2>
+			
+			<div class="arrows" onclick="navigate()">
+				<div class="arrowCont1">
+					<div class="a arrow1"></div>
+					<div class="a arrow2"></div>
+				</div>
+
+				<div class="arrowCont2">
+					<div class="a arrow3"></div>
+					<div class="a arrow4"></div>
+				</div>
+
+				<div class="arrowCont3">
+					<div class="a arrow5"></div>
+					<div class="a arrow6"></div>
+				</div>
+			</div>
+
+			<div class="genres">
+
+				<div class="g chapters">
+					<div class="icon">
+						<img src=" {{ url_for('static', filename='/pics/ic1.png') }} ">
+					</div>
+					<p class="genres-name"> Latest Chapter </p>
+					<p class="genres-value"> {{ content['latest_chap'] }} </p>
+				</div>
+
+				<div class="g volumes">
+					<div class="icon">
+						<img src=" {{ url_for('static', filename='/pics/ic2.png') }} ">
+					</div>
+					<p class="genres-name">Volumes </p>
+					<p class="genres-value">20</p>
+				</div>
+
+				<div class="g popularity">
+					<div class="icon">
+						<img src=" {{ url_for('static', filename='/pics/ic3.png') }} ">
+					</div>
+					<p class="genres-name"> Genres </p>
+					<p class="genres-value"> {{content['genres']}} </p>
+				</div>
+
+				<div class="g source">
+					<div class="icon">
+						<img src=" {{ url_for('static', filename='/pics/ic4.png') }} ">
+					</div>
+					<p class="genres-name"> Author </p>
+					<p class="genres-value"> {{ content['author'] }} </p>
+				</div>
+
+				<div class="g status">
+					<div class="icon">
+						<img src=" {{ url_for('static', filename='/pics/ic5.png') }} ">
+					</div>
+					<p class="genres-name">Status</p>
+					<p class="genres-value"> {{ content['status'] }} </p>
+				</div>
+
+				<div class="g start-date">
+					<div class="icon">
+						<img src=" {{ url_for('static', filename='/pics/ic6.png') }} ">
+					</div>
+					<p class="genres-name">Start date</p>
+					<p class="genres-value">15 Aug 2020</p>
+				</div>
+
+			</div>
+		</div>	
+
+
+		<div class="container">
+			<div class="sub-container">
+				<div class="summary">
+					{{ content['synopsis'] }}
+				</div>
+
+				<h1 class='chapter-header'> Chapters </h1 >
+				<div class="download-links" data-simplebar>
+					
+					<ul>
+						{% for chapter in content['chapters']%}
+							<a href=" {{ url_for('MangaChapter', link = chapter['r_link'] ) }} ">
+								<li>
+									<p> {{ chapter['title'] }}  </p>
+								</li>
+							</a>
+						{% endfor %}
+					</ul>
+				</div>
+
+
+			</div>
+		</div>
+		{% endif %}
+
+	<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+</body>
+{% endblock %}

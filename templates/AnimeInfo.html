@@ -1,0 +1,292 @@
+{% extends 'navbar.html' %}
+
+{% block header %}
+<style>
+	:root{
+		--heading: {{ session['heading_font'] }} ;
+		--paragraph: {{session['paragraph_font'] }} ;
+		--button: {{session['button_font'] }} ;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<html>
+<head>
+	<title>Main anime page</title>
+	<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='AnimeInfo.css') }} ">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Lobster&family=Lobster+Two&family=PT+Sans&family=Permanent+Marker&family=Raleway:wght@500&family=Rubik&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+	<style>
+		:root{
+			--heading: {{ session['heading_font'] }} ;
+			--paragraph: {{session['paragraph_font'] }} ;
+			--button: {{session['button_font'] }} ;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div class="page-banner">
+		<img src=" {{ imageURL }} ">
+		<h1> {{ content['name'] }} </>
+	</div>
+
+	<div class="arrow" onclick="scrollDown()">
+		<img src=" {{ url_for('static', filename='/pics/arrow.png') }} ">
+	</div>
+
+	<div class="extras" >
+		
+		<div class="e character">
+			<a href=" {{ url_for('CharacterPage', chs= content['name'], source = '' ) }}"><h3>Characters</h3></a>
+			<img src=" {{ url_for('static', filename='/pics/character.svg') }} ">
+		</div>
+
+		<div class="e episode">
+			<a href=" {{ url_for('Download', name = content['name'], type='dlist' ) }} "> <h3>Episodes</h3> </a>
+			<img src=" {{ url_for('static', filename='/pics/episode.png') }} ">
+		</div>
+
+		<div class="e pics">
+			<a href=" {{ url_for('Wallpaper', name = content['name']) }} "> <h3>Wallpapers</h3> </a>
+			<img src=" {{ url_for('static', filename='/pics/image.png'  ) }} ">
+		</div>
+
+		<div class="e manga">
+			<h3>Manga</h3>
+			<img src=" {{ url_for('static', filename='/pics/manga.png') }} ">
+		</div>
+
+	</div>
+
+	<div class="content">
+		
+		<div class="summary" data-simplebar>
+				<div class="card-image">
+					<img src=" {{ content['image'] }} ">
+				</div>
+				{{content['synopsis']}}
+		</div>
+
+		<img src=" {{ url_for('static', filename='/pics/boy.png') }} " class="boy">
+
+		<div class="genres">
+
+			<div class="g-container">
+				<div class="g-ic">
+					<img src=" {{ url_for('static', filename='/icons/ic1.png') }} ">
+				</div>
+				<div class="g-text">
+					<p> Japanese :-   Shigeki no kyojin  </p>
+				</div>
+			</div>
+
+			<div class="g-container">
+				<div class="g-ic">
+					<img src=" {{ url_for('static', filename='/icons/ic2.png') }} ">
+				</div>
+				<div class="g-text">
+					<p> Episodes :-  24  </p>
+				</div>
+			</div>
+
+			<div class="g-container">
+				<div class="g-ic">
+					<img src="{{ url_for('static', filename='/icons/ic3.png') }}">
+				</div>
+				<div class="g-text">
+					<p> Status :- Ongoing </p>
+				</div>
+			</div>
+
+			<div class="g-container">
+				<div class="g-ic">
+					<img src="{{ url_for('static', filename='/icons/ic4.png') }}">
+				</div>
+				<div class="g-text">
+					<p> Aired :- 3 Mar 2021 </p>
+				</div>
+			</div>
+
+			<div class="g-container">
+				<div class="g-ic">
+					<img src="{{ url_for('static', filename='/icons/ic5.png') }}">
+				</div>
+				<div class="g-text">
+					<p> Genres :- Action, adventure, Titan, Emotional </p>
+				</div>
+			</div>
+
+			<div class="g-container">
+				<div class="g-ic">
+					<img src="{{ url_for('static', filename='/icons/ic6.png') }}">
+				</div>
+				<div class="g-text">
+					<p> Source :- Manga </p>
+				</div>
+			</div>
+
+			<div class="g-container">
+				<div class="g-ic">
+					<img src="{{ url_for('static', filename='/icons/ic7.png') }}">
+				</div>
+				<div class="g-text">
+					<p> Duration :-  24 min per/epi </p>
+				</div>
+			</div>
+
+			<div class="g-container">
+				<div class="g-ic">
+					<img src="{{ url_for('static', filename='/icons/ic8.png') }}">
+				</div>
+				<div class="g-text">
+					<p> Rating :- 9.9 </p>
+				</div>
+			</div>
+	
+		</div>
+
+		<!-- <div class="genres">
+			<p>Japanese  :</p>
+			<p>Episodes  :</p>
+			<p>Status    :</p>
+			<p>Aired     :</p>
+			<p>Genres    :</p>
+			<p>Source    :</p>
+			<p>Duration  :</p>
+			<p>Rating    :</p>
+		</div> -->
+	</div>
+
+	<div class="lists">
+
+		<div class="list">
+			<h2 onclick="display()">
+				<p> Episodes List </p>
+				<img src=" {{ url_for('static', filename = '/pics/arrow2.png') }} " id = 'arrow1'>
+			</h2>
+			<div class="episodes">
+				<ul>
+					{% for episode in content['episodes'] %}
+						<li><span> >> </span> {{episode}}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="list">
+			<h2 onclick="show()">
+				<p> Characters List </p>
+				<img src=" {{ url_for('static', filename = '/pics/arrow2.png') }} " id = 'arrow2'>
+			</h2>
+			<div class="characters">
+				<ul>
+					{% for character in content['characters'] %}
+						<a href=" {{ url_for('CharacterPage', ch_name = character, chs= '') }} ">
+							<li><span> >> </span> {{ character[0] }} --> {{ character[1] }} Role </li>
+						</a>	
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+
+		<div class="list">
+			<h2 onclick="reveal()">
+				<p> Studios List </p>
+				<img src=" {{ url_for('static', filename = '/pics/arrow2.png') }} " id = 'arrow3'>
+			</h2>
+			<div class="studios">
+				<ul>
+					{% for studio in content['studios'] %}
+						<li><span> >> </span> {{ studio }} </li>
+					{% endfor %}
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="list">
+			<h2 onclick="staffList()">
+				<p> Staff List </p>
+				<img src=" {{ url_for('static', filename = '/pics/arrow2.png') }} " id = 'arrow4'>
+			</h2>
+			<div class="staff">
+				<ul>
+					<!-- {% if staff != '' %} -->
+						{% for staff in content['staffs'] %}
+							<a href=" {{ url_for('Staff', sname=staff[0] ) }} ">
+								<li><span> >> </span> {{ staff[0] }} --> {{ staff[1] }} </li>	
+							</a>
+						{% endfor %}
+					<!-- {% endif %} -->
+					
+				</ul>
+			</div>
+		</div>
+
+
+	</div>
+
+
+<!-- Quote place -->
+
+
+
+<script type="text/javascript">
+	
+	function scrollDown(){
+		var target = document.querySelector('.extras');
+		var targetPosition = target.offsetTop;
+		window.scrollTo(0, targetPosition);	
+		// console.log(targetPosition);
+	}
+	
+	var episodes = document.querySelector('.episodes');
+	var characters = document.querySelector('.characters')
+	var studios = document.querySelector('.studios')
+	var staff = document.querySelector('.staff')
+	var arrow1 = document.querySelector('#arrow1')
+	var arrow2 = document.querySelector('#arrow2')
+	var arrow3 = document.querySelector('#arrow3')
+	var arrow4 = document.querySelector('#arrow4')
+
+	
+
+	function display(){
+		var epi_number = parseInt(" {{ content['e_number'] }} ")*42;
+		episodes.style.height = episodes.style.height === `${epi_number}px` ? '0px' :`${epi_number}px`;
+		arrow1.classList.toggle('rotate');
+		console.log('Episodes number -> ', epi_number);
+	}
+
+	function show(){
+		var ch_number = parseInt(" {{ content['c_number'] }} ")*42;
+		characters.style.height = characters.style.height === `${ch_number}px` ? '0px' :`${ch_number}px`;
+		arrow2.classList.toggle('rotate');
+		console.log('Characters number -> ', ch_number);
+	}
+
+	function reveal(){
+		var stu_number = parseInt(" {{ content['stu_number'] }} ")*42;
+		studios.style.height = studios.style.height === `${stu_number}px` ? '0px' :`${stu_number}px`;
+		arrow3.classList.toggle('rotate');
+		console.log('Studio number -> ', stu_number);
+	}
+
+	function staffList(){
+		var stf_number = parseInt("{{ content['stf_number'] }}")*42;
+		staff.style.height = staff.style.height === `${stf_number}px` ? '0px' :`${stf_number}px`;
+		arrow4.classList.toggle('rotate');
+		console.log('Staff number ->', stf_number );
+	}
+
+</script>
+
+</body>
+</html>
+
+{% endblock %}

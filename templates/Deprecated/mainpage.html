@@ -1,0 +1,315 @@
+{% extends 'navbar.html' %}
+
+{% block header %}
+
+<style>
+	:root{
+		--heading: {{session['heading_font'] }} ;
+		--paragraph: {{session['paragraph_font'] }} ;
+		--button: {{session['button_font'] }} ;
+	}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+	<title> Header </title>
+	<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='mainpage.css') }} ">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+	<img src="{{ url_for('static', filename='/pics/Banner.jpg') }}" class="mainpageBg">
+
+	
+
+	<div class="container">
+			
+		<form method="POST">
+			<div class="searchbox-container">
+				<div class="searchbox">
+					<input type="text" name="animesearch" class="input" placeholder="Search...">
+					<svg class="searchbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.966 56.966">
+						<path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17s-17-7.626-17-17S14.61,6,23.984,6z" />
+					</svg>
+				</div>
+			</div>
+		</form>
+
+
+		<div class="action">
+			<div class="img-container">
+				<img src="{{ url_for('static', filename='/pics/img1.jpg') }}" alt="">
+			</div>
+
+			<div class="anime-list action-list">
+				
+				<h2> <p> Action </p></h2>
+				<ul>
+					<a href=" {{ url_for('SearchResult',animeName = '', recomendation ='Attack on Titan') }} ">
+						<li><span> 1 </span>  Attack on Titan </li>
+					</a>	
+						
+					<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Sky wizards academy') }} ">
+						<li><span> 2 </span>   Sky wizards academy </li>
+					</a>	
+
+					<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Tokyo ravens') }} ">
+						<li><span> 3 </span>   Tokyo ravens </li>
+					</a>
+
+					<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Fairy tail') }} ">
+						<li><span> 4 </span>   Fairy tail </li>
+					</a>
+
+					<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Demon slayer') }} ">
+						<li><span> 5 </span>   Demon slayer </li>
+					</a>
+
+					<a href=" {{ url_for('SearchResult',animeName = '', recomendation='My Hero Academia') }} ">
+						<li><span> 6 </span>   My Hero Academia </li>
+					</a>
+
+					<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Rokka: Braves of the Six Flowers') }} ">
+						<li><span> 7 </span>   Braves of six flowers </li>
+					</a>
+
+					<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Assassination classroom') }} ">
+						<li><span> 8 </span>   Assassination classroom </li>
+					</a>
+
+					<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Hunter X Hunter') }} ">
+						<li><span> 9 </span>   Hunter X Hunter</li>
+					</a>
+
+					<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Code:Breaker') }} ">
+						<li><span>10</span>  Code Breakers </li>
+					</a>
+
+				</ul>
+
+			</div>
+			<div class="icon">
+				<img class='icon-img' src="{{ url_for('static', filename='/pics/Action.png') }}">
+			</div>
+
+		</div>
+
+			<div class="rom-com">
+				<div class="img-container">
+					<img src=" {{ url_for('static', filename='/pics/img2.png') }} " alt="">
+				</div>
+
+				<div class="anime-list rom-com-list">
+					
+					<h2> <p> Rom-com </p></h2>
+					<ul>
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='We never learn') }} ">
+							<li><span> 1 </span>   We never learn </li>
+						</a>
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 2 </span>   Golden time </li>
+						</a>
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='My teen romantic comedy ') }} ">
+							<li><span> 3 </span>   My teen romantic comedy </li>
+						</a>	
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Nisekoi') }} ">
+							<li><span> 4 </span>   Nisekoi </li>
+						</a>
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Demon slayer') }} ">
+							<li><span> 5 </span>   Demon slayer </li>
+						</a>
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 6 </span>   My Hero Academia </li>
+						</a>
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 7 </span>   Braves of six flowers </li>
+						</a>
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 8 </span>   Assassination classroom </li>
+						</a>
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 9 </span>   Hunter X Hunter</li>
+						</a>
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span>10</span>    Code Breakers </li>
+						</a>
+
+					</ul>
+
+				</div>
+				<div class="icon">
+					<img class='icon-img' src="{{ url_for('static', filename='/pics/rom-com.png') }}">
+				</div>
+
+		</div>
+
+		<div class="ecchi">
+			<div class="img-container">
+				<img src="{{ url_for('static', filename='/pics/img3.jpg') }}" alt="">
+			</div>
+
+				<div class="anime-list ecchi-list">
+					
+					<h2> <p> Echii </p></h2>
+					<ul>
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 1 </span>   High School DxD </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 2 </span>   Shuffle! </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 3 </span>  Mahoromatic </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 4 </span>  Highschool of the Dead </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 5 </span>   Omamori Himari </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 6 </span>   Punch Line </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 7 </span>   Please Teacher! </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 8 </span>   Kanokon </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 9 </span>   Demon King Daimao </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span>10</span>    Vividred Operation </li>
+						</a>
+
+
+					</ul>
+
+				</div>
+				<div class="icon">
+					<img class='icon-img' src="{{ url_for('static', filename='/pics/ecchi.png') }}">
+				</div>
+
+
+		</div>
+
+		<div class="comedy">
+			<div class="img-container">
+				<img src="{{ url_for('static', filename='/pics/img4.jpg') }}" alt="">
+			</div>
+
+				<div class="anime-list comedy-list">
+					
+					<h2> <p> Comedy </p></h2>
+					<ul>
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 1 </span>   Boku no Hero Academia  </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 2 </span>   Horimiya </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 3 </span>  Zombieland Saga: Revenge </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 4 </span>  Kumo Desu ga, Nani ka? </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 5 </span>   Non Non Biyori Nonstop </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 6 </span>   Show by Rock!! Stars!! </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 7 </span>   Hataraku Saibou!! </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 8 </span>   Tenchi Souzou Design-bu </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span> 9 </span>   Yuru Camp </li>
+						</a>
+
+						<a href=" {{ url_for('SearchResult',animeName = '', recomendation='Golden time') }} ">
+							<li><span>10</span>    Ijiranaide, Nagatoro-san </li>
+						</a>
+
+
+					</ul>
+
+				</div>
+				<div class="icon">
+					<img class='icon-img' src="{{ url_for('static', filename='/pics/comedy.png') }}">
+				</div>
+		</div>
+
+		<div class="harem">
+			<div class="img-container">
+				<img src="{{ url_for('static', filename='/pics/img5.jpg') }}" alt="">
+			</div>
+
+				<div class="anime-list harem-list">
+					
+					<h2> <p> Harem </p></h2>
+					<ul>
+						<a href=" url_for('SearchResult',animeName = '', recomendation='Golden time') ">
+							<li><span> 1 </span>   We never learn </li>
+						</a>
+						<a href=" url_for('SearchResult',animeName = '', recomendation='Golden time') ">
+							<li><span> 2 </span>   5-toubun no Hanayome </li>
+						</a>
+						<a href=" url_for('SearchResult',animeName = '', recomendation='Golden time') ">
+							<li><span> 3 </span>  Peter Grill to Kenja no Jikan </li>
+						</a>
+						<a href=" url_for('SearchResult',animeName = '', recomendation='Golden time') ">
+							<li><span> 4 </span>  Val x Love </li>
+						</a>
+						<a href=" url_for('SearchResult',animeName = '', recomendation='Golden time') ">
+							<li><span> 5 </span>   Date A Live  </li>
+						</a>
+						<a href=" url_for('SearchResult',animeName = '', recomendation='Golden time') ">
+							<li><span> 6 </span>   Conception </li>
+						</a>
+						<a href=" url_for('SearchResult',animeName = '', recomendation='Golden time') ">
+							<li><span> 7 </span>   Strike the blood </li>
+						</a>
+						<a href=" url_for('SearchResult',animeName = '', recomendation='Golden time') ">
+							<li><span> 8 </span>   Masamune kun's Revenge </li>
+						</a>
+						<a href=" url_for('SearchResult',animeName = '', recomendation='Golden time') ">
+							<li><span> 9 </span>   ChäoS;Child </li>
+						</a>
+						<a href=" url_for('SearchResult',animeName = '', recomendation='Golden time') ">
+							<li><span>10</span>    Isekai wa Smartphone </li>
+						</a>
+
+					</ul>
+
+				</div>
+				<div class="icon">
+					<img class='icon-img' src="{{ url_for('static', filename='/pics/harem.png') }}">
+				</div>
+		</div>
+
+
+		
+	</div>
+{% endblock %}

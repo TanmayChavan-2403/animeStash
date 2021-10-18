@@ -1,0 +1,116 @@
+{% extends 'navbar.html' %}
+
+{% block header %}
+<style>
+	:root{
+		--heading: {{session['heading_font'] }} ;
+		--paragraph: {{session['paragraph_font'] }} ;
+		--button: {{session['button_font'] }} ;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+
+	<title> Download page </title>
+	<link rel="stylesheet" href=" {{ url_for('static', filename='Download.css') }} ">
+	
+	<div class="loader" >
+        <div class="loader-content">
+            <div class="loader-heading">
+                <img src=" {{ url_for('static', filename = '/pics/loading.svg') }} " alt="">
+                <h2> Status Report -  </h2> <h2>Fetching data</h2>
+            </div>
+            <div class="loader-gif">
+                <img src=" {{ url_for('static', filename ='/pics/search.gif' ) }} ">
+            </div>
+            <div class="loader-text">
+                <h1> Searching for ... </h1>
+                <p class="status-name"></p> 
+                <p class="status-type"></p>
+            </div>
+        </div>
+    </div>
+
+	<div class="main-container">
+		<img src=" {{ wallpaper }} " class="bg">
+
+		<div class="header">
+			<h1> {{ title }} </h1>
+		</div>
+
+		<div class="container">
+			{% if crawl_type == 'dlist' %}
+			<div class="list">
+				{% for data in content %}
+				
+					<div class="card" onclick="innitiateSearch('{{ data['Name'] }}', 'Anime')">
+
+						<div class="name">
+							<p> {{ data['Name'] }} </p>
+						</div>
+
+						<div class="image">
+							<a href=" {{ url_for('Download', type='dlink ' + data['Episodes'] , link = data['Redirect'], name = data['Name'] ) }} ">
+								<img src="{{ data['Image'] }}" alt="">
+							</a>
+						</div>
+
+					</div>
+				
+				{% endfor %}
+			</div>
+
+			{% else %}
+
+			
+            <div class="links">
+
+            	{% for epi in range(1, length+1) %}
+					<div class="epi_link">
+						<h3> Episode {{ epi }}  </h3>
+						<a href=" {{ url_for('Links', link = content[epi] ) }} ">
+							<div class="download" onclick="visible('{{epi}}')">
+								<img src=" {{url_for('static', filename='/pics/loading.svg')}} " id="l{{epi}}" class="loading">
+								<h4 id= 'd{{epi}}'> Download </h4>
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+
+            </div>
+	        
+
+			{% endif %}
+
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		function visible(n){
+			const spinner = document.querySelector(`#l${n}`);
+			const text    = document.querySelector(`#d${n}`);
+			spinner.style.visibility = 'visible';
+			text.style.visibility = 'hidden';
+		}
+
+        function innitiateSearch(name ,type){
+            const loader = document.querySelector('.loader');
+            loader.style.visibility = 'visible';
+            loader.style.pointerEvents = 'all';
+            document.querySelector('.status-name').innerHTML = `Name:  ${name}`;
+            document.querySelector('.status-type').innerHTML = `Type:  ${type}`;
+            var clock = 1;
+            var timer = setInterval(function(){
+                clock += 1;
+                if ( clock > 5){
+                    document.querySelector('.loader-text').innerHTML += ' If data is more then it will take some time to fetch data[Anime/Manga]';
+                    clearInterval(timer)
+                }
+            }, 1000);
+        }
+
+	</script>
+
+{% endblock  %}

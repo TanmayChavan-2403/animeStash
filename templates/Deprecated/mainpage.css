@@ -1,0 +1,754 @@
+:root{
+	--heading: 'Poppins';
+    --paragraph: 'Righteous';
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*body{
+	font-size: 20px;
+	background-image: url(pics/Banner.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100vh;
+}*/
+
+img{
+	width: 100%;
+	height: 100%;
+}
+
+a{
+	text-decoration: none;
+}
+
+
+/* Action container start */
+
+.container{
+	width: 100%;
+	height: 1600px;
+	background: linear-gradient(to bottom, #0f0e20, #653f54);
+	position: relative;
+	top: 100vh;
+}	
+
+.container:after{
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	top: -2.3%;
+	width: 100%;
+	height: 100px;
+	background: linear-gradient(to top, #0f0e20, transparent);
+	z-index: 100;
+}
+
+.mainpageBg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    object-fit: cover;
+}  
+
+
+.action{
+	background: rgb(9,28,121);
+	background: linear-gradient(120deg, rgba(9,28,121,1) 0%, rgba(0,194,199,1) 0%, rgba(255,0,236,1) 100%);
+	border-radius: 25% 76% 79% 25% / 50% 49% 51% 51% ;
+	width: 80%;
+	height: 600px;
+	margin: auto;
+	top: 100px;
+	position: relative;
+	/*transform-style: preserve-3d;*/ /*This property is responsible for sending half image back of the container */
+	perspective: 1500px;
+}
+
+.img-container{
+	/*border: 1px solid white;*/
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+	width: 400px;
+	height: 250px;
+	position: absolute;
+	right: -50px;
+	top: 170px;
+	transform: rotate3d(0, 1, 0, -35deg);
+	z-index: 1000;
+	/* perspective: 1500px;  To parent container to get 3D effect*/
+}
+
+img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform: translateZ(20px); 
+	/*transform: translateZ(75px) perspective(200px)*/
+}
+
+
+.action-list{
+	border-bottom: 30px solid #e79cc2;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	/*border-top: 1px solid #f1c5c5;*/
+	margin: 50px 200px;
+	position: absolute;
+	width: 40%;
+}
+
+.action-list li{
+	list-style: none;
+	width: 90%;
+	margin: auto;
+	font-size: 25px;
+	background-color: #f1c5c5;
+	/*font-family: 'Rubik';*/
+	font-family: var(--paragraph);
+	color: #002552;
+	position: relative;
+	transition: .3s;
+}
+
+.action-list li:hover{
+	transform: scale(1.11);
+	cursor: pointer;
+
+}
+
+.action-list h2{
+	background-color: #e79cc2;
+	height: 45px;
+	position: relative;
+	font-weight: bold;
+	/*text-align: center;*/
+	font-family: var(--heading);
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+.action-list h2 p{
+	position: relative;
+	left: 100px;
+	top: 5px;
+}
+
+span{
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	display: inline-block;
+	background-color: #e79cc2;
+	border: 1px solid #f1c5c5;
+	position: relative;
+	left: 0;
+} 
+
+.icon{
+	/*position: absolute;*/
+	/*border: 1px solid white;*/
+	width: 100px;
+	height: 100px;
+	position: relative;
+	left: 200px;
+
+}
+
+.icon:hover .icon-img{
+	transform: scale(1.1);
+}
+
+.icon-img{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transition: .7s;
+}
+
+/* Rom-com container */
+
+.rom-com{
+	background: #8A2387;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	border-radius: 25% 76% 79% 25% / 50% 49% 51% 51% ;
+	width: 80%;
+	height: 600px;
+	margin: 300px auto;
+	top: 100px;
+	position: relative;
+	/*transform-style: preserve-3d;*/ /*This property is responsible for sending half image back of the container */
+	perspective: 1500px;
+}
+.rom-com-list{
+	border-bottom: 30px solid #5eaaa8;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	/*border-top: 1px solid #1687a7;*/
+	margin: 50px 200px;
+	position: absolute;
+	width: 40%;
+}
+
+.rom-com-list span{
+
+	background-color: #5eaaa8;
+	border: 1px solid #16c79a;
+}
+
+.rom-com-list h2{
+	background-color: #5eaaa8;
+	height: 45px;
+	position: relative;
+	font-family: var(--heading);
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+
+.rom-com-list h2 p{
+	position: relative;
+	left: 100px;
+	top: 5px;
+}
+
+.rom-com-list li{
+	list-style: none;
+	width: 90%;
+	margin: auto;
+	font-size: 25px;
+	background-color: #bbf1fa;
+	font-family: var(--paragraph);
+	color: #002552;
+	position: relative;
+	transition: .3s;
+}
+
+.rom-com-list li:hover{
+	transform: scale(1.11);
+	cursor: pointer;
+
+}
+
+/* Rom-com container end*/
+
+
+/* Ecchi anime container*/
+
+.ecchi{
+	background: #136a8a;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	border-radius: 25% 76% 79% 25% / 50% 49% 51% 51% ;
+	width: 80%;
+	height: 600px;
+	margin: 300px auto;
+	top: 100px;
+	position: relative;
+	/*transform-style: preserve-3d;*/ /*This property is responsible for sending half image back of the container */
+	perspective: 1500px;
+}
+.ecchi-list{
+	border-bottom: 30px solid #ea6161;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	/*border-top: 1px solid #1687a7;*/
+	margin: 50px 200px;
+	position: absolute;
+	width: 40%;
+}
+
+.ecchi-list span{
+
+	background-color: #ea6161;
+	border: 1px solid #e21d1d;
+}
+
+.ecchi-list h2{
+	background-color: #ea6161;
+	height: 45px;
+	position: relative;
+	font-family: var(--heading);
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+
+.ecchi-list h2 p{
+	position: relative;
+	left: 100px;
+	top: 5px;
+}
+
+.ecchi-list li{
+	list-style: none;
+	width: 90%;
+	margin: auto;
+	font-size: 25px;
+	background-color: #f08e8e;
+	font-family: var(--paragraph);
+	color: #002552;
+	position: relative;
+	transition: .3s;
+}
+
+.ecchi-list li:hover{
+	transform: scale(1.11);
+	cursor: pointer;
+	
+
+}
+
+
+/* Ecchi anime container */
+
+
+/*Comedy anime container*/
+
+.comedy{
+	background: #ec008c;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #fc6767, #ec008c);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #fc6767, #ec008c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	border-radius: 25% 76% 79% 25% / 50% 49% 51% 51% ;
+	width: 80%;
+	height: 600px;
+	margin: 300px auto;
+	top: 100px;
+	position: relative;
+	/*transform-style: preserve-3d;*/ /*This property is responsible for sending half image back of the container */
+	perspective: 1500px;
+}
+.comedy-list{
+	border-bottom: 30px solid #f5d782;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	/*border-top: 1px solid #1687a7;*/
+	margin: 50px 200px;
+	position: absolute;
+	width: 40%;
+}
+
+.comedy-list span{
+
+	background-color: #f5d782;
+	border: 1px solid #e21d1d;
+}
+
+.comedy-list h2{
+	background-color: #f5d782;
+	height: 45px;
+	position: relative;
+	font-family: var(--heading);
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+
+.comedy-list h2 p{
+	position: relative;
+	left: 100px;
+	top: 5px;
+}
+
+.comedy-list li{
+	list-style: none;
+	width: 90%;
+	margin: auto;
+	font-size: 25px;
+	background-color: #ffee93;
+	font-family: var(--paragraph);
+	color: #002552;
+	position: relative;
+	transition: .3s;
+}
+
+.comedy-list li:hover{
+	transform: scale(1.11);
+	cursor: pointer;
+}
+
+
+/* Comedy anime container end */
+
+/* Harem anime container start */
+
+.harem{
+	background: #acb6e5;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #86fde8, #acb6e5);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #86fde8, #acb6e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+	border-radius: 25% 76% 79% 25% / 50% 49% 51% 51% ;
+	width: 80%;
+	height: 600px;
+	margin: 300px auto;
+	top: 100px;
+	position: relative;
+	/*transform-style: preserve-3d;*/ /*This property is responsible for sending half image back of the container */
+	perspective: 1500px;
+}
+.harem-list{
+	border-bottom: 30px solid #312c51;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	/*border-top: 1px solid #1687a7;*/
+	margin: 50px 200px;
+	position: absolute;
+	width: 40%;
+}
+
+.harem-list span{
+
+	background-color: #312c51;
+	border: 1px solid #51c2d5;
+}
+
+.harem-list h2{
+	background-color: #312c51;
+	height: 45px;
+	position: relative;
+	font-family: var(--heading);
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+
+.harem-list h2 p{
+	position: relative;
+	left: 100px;
+	top: 5px;
+	color: white;
+}
+
+.harem-list li{
+	list-style: none;
+	width: 90%;
+	margin: auto;
+	font-size: 25px;
+	background-color: #ad6c80;
+	font-family: var(--paragraph);
+	color: white;
+	position: relative;
+	transition: .3s;
+}
+
+.harem-list li:hover{
+	transform: scale(1.11);
+	cursor: pointer;
+}
+
+/* Search bar */
+
+.searchbox-container{
+	position: relative;
+	top: 60px;
+	right: 60px;
+	float: right;
+}
+
+.searchbox{
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 53px;
+    transition: 0.4s linear;
+    overflow: hidden;
+}
+
+.input{
+    display: block;
+    appearance: none;
+    width: 100%;
+
+    border: none;
+    outline: none;
+    border-radius: 50px;
+
+    background-color: #24233A;
+    padding: 15px;
+    color: #24233A;
+    
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.4s linear;
+}
+
+.searchbox__icon{
+    position: absolute;
+    right: 10px;
+    top: 25%;
+    transform: translate(50%; -50%);
+
+    width: 30px;
+    height: 30px;
+
+    pointer-events: none;
+}
+
+::placeholder{
+    color: #24233A;
+}
+
+path{
+    fill: #00F494;
+    transition: 0.4s linear;
+}
+
+.searchbox:focus-within{
+    max-width: 300px;
+}
+
+.input:focus-within{
+    background-color: #FFF;
+    padding-right: 50px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+path:focus-within {
+    fill: #24233A;
+}
+
+/* Harem anime container end  */
+
+
+
+@media screen and (max-width: 1100px){
+	
+	.container{
+		margin: 470px auto;
+		top: 0%;
+	}
+	.container:after{
+		display: none;
+	}
+
+	.img-container{
+		display: none;
+	}
+
+	.anime-list{
+		width: 50%;
+		margin: 50px 150px;
+	}
+}
+
+@media screen and (max-width: 940px){
+
+	.container{
+		margin: 0 auto;
+		top: 0px;
+	}
+
+	.container:before{
+		display: none;
+	}
+
+	.action{
+		width: 95%;
+	}
+
+	.ecchi{
+		width: 95%;
+	}
+
+	.rom-com{
+		width: 95%;
+	}
+
+	.comedy{
+		width: 95%;
+	}
+
+	.harem{
+		width: 95%;
+	}
+}
+
+@media screen and (max-width: 800px){
+
+	.mainpageBg{
+		display: none;		
+	}
+	
+	.container{
+		margin: 0 auto;
+		top: 0px;
+	}
+
+	.container:after{
+		display: none;
+	}
+
+	.container:before{
+		display: none;
+	}
+
+	.action-list{
+		border-bottom: 15px solid #e79cc2 ;
+	}
+
+	.comedy-list{
+		border-bottom: 15px solid #f5d782;
+	}
+
+	.harem-list{
+		border-bottom: 15px solid #312c51;
+	}
+
+	.rom-com-list{
+		background: none;
+		border-bottom: 15px solid #5eaaa8;
+	}
+
+	.ecchi-list{
+		background: none;
+		border-bottom: 15px solid #ea6161;
+	}
+
+	.search-bar{
+		width: 150px;
+		height: 15px;
+		margin: 20px 40%;
+	}
+
+	.action{
+		background: none;
+		width: 80%;
+		height: 300px;
+		margin: auto;
+		top: 100px;
+		position: relative;
+		perspective: 1500px;
+	}
+
+	.ecchi{
+		background: none;
+		width: 80%;
+		height: 300px;
+		margin: auto;
+		top: 100px;
+		position: relative;
+		perspective: 1500px;
+	}
+
+	.rom-com{
+		background: none;
+		width: 80%;
+		height: 300px;
+		margin: auto;
+		top: 100px;
+		position: relative;
+		perspective: 1500px;
+	}
+
+	.comedy{
+		background: none;
+		width: 80%;
+		height: 300px;
+		margin: auto;
+		top: 100px;
+		position: relative;
+		perspective: 1500px;
+	}
+
+	.harem{
+		background: none;
+		width: 80%;
+		height: 300px;
+		margin: auto;
+		top: 100px;
+		position: relative;
+		perspective: 1500px;
+	}
+
+	.anime-list{
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+		/*border-top: 1px solid #f1c5c5;*/
+		margin: 20px auto;
+		position: absolute;
+		width: 100%;
+	}
+
+	.img-container{
+		display: none;
+	}
+
+
+	.anime-list li{
+		list-style: none;
+		width: 90%;
+		margin: auto;
+		font-size: 15px;
+		font-family: var(--paragraph);
+		position: relative;
+		transition: .3s;
+	}
+
+	.anime-list h2{
+		height: 25px;
+		position: relative;
+		font-size: 15px;
+		font-family: var(--heading);
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+	}
+
+	.anime-list h2 p{
+		position: relative;
+		left: 100px;
+		top: 5px;
+		width: fit-content;
+	}
+
+	.anime-list span{
+		width: 20px;
+		height: 20px;
+		text-align: center;
+		display: inline-block;
+		border: 1px solid #f1c5c5;
+		position: relative;
+		left: 0;
+	} 
+
+	.icon{
+		/*position: absolute;*/
+		/*border: 1px solid white;*/
+		width: 50px;
+		height: 50px;
+		position: relative;
+		left: 10px;
+
+	}
+
+	.icon:hover .icon-img{
+		transform: scale(1.1);
+	}
+
+	.icon-img{
+		width: 100%;
+		height: 100%;
+		position: relative;
+		transition: .7s;
+	}
+}
+
+
+

@@ -1,0 +1,94 @@
+{% extends 'navbar.html' %}
+
+{% block header %}
+<style>
+	:root{
+		--heading: {{session['heading_font'] }} ;
+		--paragraph: {{session['paragraph_font'] }} ;
+		--button: {{session['button_font'] }} ;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+	<!DOCTYPE html>
+		<html>
+		<head>
+			<title>Character page</title>
+			<link  rel="stylesheet"  href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+			<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='CharacterPage.css') }} ">
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+			<link href="https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Lobster&family=Lobster+Two&family=PT+Sans&family=Permanent+Marker&family=Raleway:wght@500&family=Rubik&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400&display=swap" rel="stylesheet">
+
+		</head>
+
+		<body>
+
+			<div class="container">
+				{% if content != [] %}
+				{% for data in content %}
+				<div class="character">
+					<div class="img-container">
+						<img src=" {{ data['Image'] }} ">
+					</div>
+					<div class="content">
+						<div class="title">
+							<h2> {{data['Character name'] }}</h2>
+						</div>
+						<div class="text" data-simplebar>
+							<p><strong>Aka-name &nbsp&nbsp  >> </strong> {{ data['Aka-name'] }} </p>
+							<p><strong>Gender   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  >> </strong> {{ data['Gender'] }} </p>
+							<p><strong>Hair color&nbsp&nbsp&nbsp&nbsp&nbsp >> </strong> {{ data['Hair color'] }} </p>
+							<p><strong>Loved by &nbsp&nbsp&nbsp&nbsp&nbsp >> </strong> {{ data['Loved'] }} </p>
+							<p><strong>Hated by &nbsp&nbsp&nbsp&nbsp&nbsp  >> </strong> {{ data['Hated'] }} </p>
+							
+							<div class="roles">
+								<div class="h1"> <h3>Anime</h3> </div>
+								<div class="h2"> <h3>Role </h3> </div>
+								{% for role in data['Roles'] %}
+									<div class="h1"> <p></p> {{ role[0] }} </p></div>
+									<div class="h2"> <p></p> {{ role[1] }} </p></div>
+								{% endfor %}
+							</div>							
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+
+				<div class="buttons">
+					<div class="previous">
+						{% if session['currentPage']  > 1 %}
+						<a href=" {{ url_for('CharacterPage', source = 'characterPage', type = 'previous',  ) }} ">
+							<img src="https://img.icons8.com/fluent/48/000000/double-left.png"/>
+						</a>
+						{% else %}
+							<img src="https://img.icons8.com/color/48/000000/clear-symbol--v2.png"/>
+						{% endif %}
+					</div>
+					<div class="next">
+						{% if session['hasNextPage'] %}
+						<a href=" {{ url_for('CharacterPage', source = 'characterPage', type='next' ) }} ">
+							<img src="https://img.icons8.com/fluent/48/000000/double-right.png"/>
+						</a>
+						{% else %}
+							<img src="https://img.icons8.com/color/48/000000/clear-symbol--v2.png"/>
+						{% endif %}
+					</div>
+				</div>
+
+				{% else %}
+					<div class="no-content">
+						<div class="nc-image">
+							<img src=" {{ url_for('static', filename='/pics/crying.gif') }} ">
+						</div>
+						<div class="nc-message">
+							<p> Gomen ne Oniisan! I coudn't fetch any data from server </p>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+			<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+		</body>
+		</html>
+{% endblock %}

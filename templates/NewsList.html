@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> News list </title>
+	<link rel="stylesheet" href=" {{ url_for('static', filename='NewsList.css') }} ">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Lobster&family=Lobster+Two&family=PT+Sans&family=Permanent+Marker&family=Raleway:wght@500&family=Rubik&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+	
+	<div class="main-container">
+		<div class="heading">
+			<h1>{{ title }} </h1>
+		</div>
+		{% for news in data %}
+		<div class="news-container">
+			<div class="img-container">
+				<img src=" {{ news['Image'] }} " alt="">
+			</div>
+			<div class="text-container">
+				<a href=" {{ url_for('NewsDetails', link = news['h_link'], title= news['h_text'] ) }} ">
+					<h1>
+						{{ news['h_text'] }}					
+					</h1>
+				</a>
+				<p>
+					{{ news['Synopsis'] }}
+					<!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, ad quam nulla magni cupiditate eaque debitis voluptatem eos dignissimos culpa error minima, illo enim ut nam, assumenda id? Nisi, reprehenderit? -->
+				</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+{% extends 'navbar.html' %}
+
+{% block header %}
+<style>
+	:root{
+		--heading: {{session['heading_font'] }} ;
+		--paragraph: {{session['paragraph_font'] }} ;
+		--button: {{session['button_font'] }} ;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+        <title>Staff</title>
+        <link rel="stylesheet" href=" {{ url_for('static', filename='Staff.css') }} ">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Josefin+Sans&family=Nunito&family=Raleway:wght@500&family=RocknRoll+One&display=swap" rel="stylesheet">
+
+    <body>
+        <div class="container">
+			{% if content != [] %}
+            <p class='header'> {{ content[0]['Name'] }} </p>
+
+            <div class="personal">
+                <div class="p-image">
+                    <img src="{{ content[0]['Image'] }} " alt=" Staff Image">
+                </div>
+                <div class="shell">
+                    <div class="p-text">
+                        {{ content[0]['Text']}}
+                    </div>
+                </div>
+            </div>
+
+            <p class="kf-heading"> Known For </p>
+            <div class="known-for">
+				{% for data in content[1]['Known for'] %}
+					<div class="cards">
+						<div class="c-image">
+							<img src=" https://www.anime-planet.com{{ data['kfImg'] }} " alt="">
+						</div>
+						<div class="c-name">
+							<p> {{ data['kfText'] }} </p>
+						</div>
+					</div>
+				{% endfor %}
+
+            </div>
+
+            <div class="additional">
+				{% for data in content[2]['Final'] %}
+					<div class="adnl-container">
+						<div class="adnl-heading">
+							<p>{{ data['DATA'][0]['AdTitle'] }}</p>
+						</div>
+						{% for assets in range(1, _len(data['DATA'][1])+1) %}
+							<div class="adnl-cards">
+								<div class="adnl-image">
+									<img src="https://www.anime-planet.com{{ data['DATA'][1][assets]['AdImage'] }}" alt="">
+								</div>
+								<div class="adnl-name">
+									<p> {{ data['DATA'][1][assets]['AdName'] }} </p>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				{% endfor %}
+            </div>
+			{% else %}
+				<div class="no-content">
+					<div class="nc-image">
+						<img src=" {{ url_for('static', filename='/pics/crying.gif') }} ">
+					</div>
+					<div class="nc-message">
+						<p> Gomen ne Oniisan! I coudn't fetch any data from server </p>
+					</div>
+				</div>
+			{% endif %}
+
+
+        </div>
+    </body>
+
+{% endblock %}

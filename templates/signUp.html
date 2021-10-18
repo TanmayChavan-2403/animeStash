@@ -1,0 +1,111 @@
+<html>
+
+    <header>
+        <title> Registration page </title>
+        <link rel="stylesheet" href=" {{ url_for('static', filename='signUp.css') }} ">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+	    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Lobster&family=Lobster+Two&family=PT+Sans&family=Permanent+Marker&family=Raleway:wght@500&family=Rubik&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </header>
+
+    <body>
+        
+            <div class="registration">
+
+                {% if status != 'error' %}
+                    <div id="mask">
+                        <img src="{{ url_for('static', filename='/pics/mask.png') }}" alt="">
+                        <div class="m-message">
+                            <p> Okaeri! Goshujin sama, Watashi wa Hiroko desu, Thankyou so much for registering yourself in our AnimeStash comunity. My angels will be asking some questions in-order to register you, and don't worry they will keep it as secret
+                            </p>
+                            <button onclick="disappear()"> Proceed </button>
+                        </div>
+                    </div>
+                {% endif %}
+                
+                {% if status == 'error' %}
+                    <div id="error">
+                        {% if err_type == 'empty' %}
+                            <div class="err-image">
+                                <img src=" {{ url_for('static', filename='/pics/regError2.png') }} " class="regImg1">
+                            </div>
+                            <div class="err-message err-forMedia">
+                                <p> OniiSan! Please don't leave {{ message  }} field empty </p>
+                                <button onclick="vanish()"> Continue to Sign-up </button>
+                            </div>
+                        {% elif err_type == 'present' %}
+                            <div class="err-image">
+                                <img src=" {{ url_for('static', filename='/pics/regError1.png') }} " class="regImg2">
+                            </div>
+                            <div class="err-message">
+                                <p> OniiSan! I looked into our database and i got to know that this {{ message }} is already taken, please choose another {{ message }} </p>
+                                <button onclick="vanish()"> Continue to Sign-up </button>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                    <form method="POST">
+                        <div class="heading">
+                            <h1> Sign-up </h1>
+                            <button type="submit"> Submit </button>
+                        </div>
+                    
+                        <div class="username">
+                            <div class="u-image">
+                                <img src=" {{ url_for('static', filename='/pics/reg1.png') }} " alt="">
+                            </div>
+                            <div class="u-message">
+                                <p> What you wanna give for your  username  :-  </p>
+                                <input type="text"  name='username' class="u-input" placeholder="Enter Username ..." /> 
+                            </div>
+                        </div>
+
+                        <div class="email-id">
+                            <div class="e-image">
+                                <img src=" {{ url_for('static', filename='/pics/reg2.png') }} " alt="">
+                            </div>
+                            <div class="e-message">
+                                <p> Oni chan! Enter your email-id  </p>
+                                <input type="text"  name='email-id' class="e-input" placeholder="Enter email-d ..." /> 
+                            </div>
+                        </div>
+
+
+                        <div class="password">
+                            <div class="p-image">
+                                <img src=" {{ url_for('static', filename='/pics/reg3.png') }} " alt="">
+                            </div>
+                            <div class="p-message">
+                                <p> Enter password, don't worry i won't see:-  </p>
+                                <input type="text"  name='password' class="p-input" placeholder="Enter Password ..." /> 
+                            </div>
+                        </div>
+                    </form>
+                    
+            </div>
+        
+
+        <script>
+            
+            function disappear(){
+                const mask = document.querySelector('#mask');
+                mask.style.transform = 'translateX(10%)';
+                mask.style.opacity = '0';
+                mask.style.zIndex = '-1';
+                // mask.style.display = 'none';
+            }
+
+            function vanish(){
+                const error = document.querySelector('#error');
+                error.style.transform = 'translateX(10%)';
+                error.style.opacity = '0';
+                error.style.zIndex = '0';
+                // error.style.display= 'none';
+            }
+
+
+        </script>
+
+    </body>
+</html>
